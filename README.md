@@ -1,2 +1,3 @@
 # HDXP
-the HDXP ports tree for HDXI/
+the HDXP ports tree for HDXI.
+
