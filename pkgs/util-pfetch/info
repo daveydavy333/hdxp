@@ -1,0 +1,5 @@
+pfetch is a pretty system information tool written in POSIX sh
+upstream: https://github.com/Un1q32/pfetch (maintained fork of dylanaraps/pfetch)
+license: MIT
+ported to hdxp by: davy
+ 
