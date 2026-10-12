@@ -1,0 +1,16 @@
+limine is a modern, minimal bootloader
+upstream: https://github.com/limine-bootloader/limine
+license: BSD-2-Clause
+ported to hdxp by: davy
+ 
+builds the uefi x86-64 loader and installs it to /boot/EFI/BOOT/BOOTX64.EFI.
+requires your EFI System Partition mounted at /boot first.
+you write /boot/limine.conf yourself, eg:
+ 
+  timeout: 5
+ 
+  /HDXI
+      protocol: linux
+      path: boot():/vmlinuz
+      cmdline: root=PARTUUID=<your-root-partuuid> rw init=/sbin/init
+ 
