@@ -1,9 +1,0 @@
-situation is a small shell init and service manager (PID 1) from derive linux
-upstream: https://codeberg.org/derivelinux/situation
-license: ISC-0
-ported to hdxp by: davy
- 
-boot with init=/bin/situation on the kernel command line, or leave the
-default, since this port also links /sbin/init to it.
-manage services with sctl (see: sctl list).
- 
