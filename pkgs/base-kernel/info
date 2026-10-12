@@ -1,0 +1,11 @@
+the linux kernel, mainline 6.18 LTS series, built from kernel.org sources
+upstream: https://www.kernel.org
+license: GPL-2.0
+ported to hdxp by: davy
+ 
+installs /boot/vmlinuz-VERSION, config and System.map, plus modules in
+/lib/modules. root fs, virtio disk/net and devtmpfs are built in, so no
+initramfs is needed.
+ 
+to customize: cd /hdxp/src/base-kernel-src/linux-VERSION, run make menuconfig,
+then make and copy bzImage to /boot yourself.
