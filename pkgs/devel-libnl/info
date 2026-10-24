@@ -1,0 +1,4 @@
+libnl is a library for netlink sockets (nl80211 etc), needed by wpa_supplicant
+upstream: https://github.com/thom311/libnl
+license: LGPL-2.1
+ported to hdxp by davey
