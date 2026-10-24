@@ -1,12 +1,8 @@
 SRC="${HDX_SRC:-/hdxp/src/devel-libnl-src}"
 VER=3.11.0
-SHA256=REPLACE_ME
+SHA256=2a56e1edefa3e68a7c00879496736fdbf62fc94ed3232c0baba127ecfa76874d
 TARBALL="libnl-$VER.tar.gz"
 TAG="libnl$(echo "$VER" | tr . _)"
-if [ "$SHA256" = REPLACE_ME ]; then
-    echo "devel-libnl: pin SHA256 in make.sh first (sha256sum of $TARBALL)" >&2
-    exit 1
-fi
 mkdir -p "$SRC"
 cd "$SRC"
 [ -f "$TARBALL" ] || curl -fL -o "$TARBALL" "https://github.com/thom311/libnl/releases/download/$TAG/$TARBALL"
