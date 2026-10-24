@@ -1,9 +1,5 @@
 SRC="${HDX_SRC:-/hdxp/src/misc-ath10k-firmware-src}"
-TAG=REPLACE_ME
-if [ "$TAG" = REPLACE_ME ]; then
-    echo "misc-ath10k-firmware: pin TAG (a linux-firmware release tag) in make.sh first" >&2
-    exit 1
-fi
+TAG=20261019
 if [ ! -d "$SRC/.git" ]; then
     git clone --depth 1 --branch "$TAG" --filter=blob:none --sparse \
         https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git "$SRC"
