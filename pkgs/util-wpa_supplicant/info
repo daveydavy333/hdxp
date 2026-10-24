@@ -1,0 +1,6 @@
+wpa_supplicant is the WPA/WPA2 client for wifi, with wpa_cli and wpa_passphrase
+built for nl80211 with the internal crypto, so WPA2-PSK works with no OpenSSL.
+WPA3 (SAE) and WPA-Enterprise are not enabled in this port yet.
+upstream: https://w1.fi/wpa_supplicant/
+license: BSD-3-Clause
+ported to hdxp by davy
