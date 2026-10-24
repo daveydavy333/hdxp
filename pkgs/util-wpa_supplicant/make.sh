@@ -1,11 +1,7 @@
 SRC="${HDX_SRC:-/hdxp/src/util-wpa_supplicant-src}"
 VER=2.11
-SHA256=REPLACE_ME
+SHA256=912ea06f74e30a8e36fbb68064d6cdff218d8d591db0fc5d75dee6c81ac7fc0a
 TARBALL="wpa_supplicant-$VER.tar.gz"
-if [ "$SHA256" = REPLACE_ME ]; then
-    echo "util-wpa_supplicant: pin SHA256 in make.sh first (sha256sum of $TARBALL)" >&2
-    exit 1
-fi
 mkdir -p "$SRC"
 cd "$SRC"
 [ -f "$TARBALL" ] || curl -fL -o "$TARBALL" "https://w1.fi/releases/$TARBALL"
