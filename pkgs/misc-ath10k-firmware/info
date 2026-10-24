@@ -1,0 +1,6 @@
+firmware for Qualcomm Atheros QCA9377 (PCIe 168c:0042) wifi, used by the ath10k_pci driver.
+only ath10k/QCA9377 from linux-firmware is installed, into /lib/firmware/ath10k/QCA9377.
+upstream: https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git
+license: see LICENSE.QualcommAtheros_ath10k (redistributable), installed next to the firmware
+ported to hdxp by davey
+this is just for my ideapad idk if anyone else gonna use this
