@@ -1,0 +1,7 @@
+zlib is the standard DEFLATE compression library, needed by libpng, freetype and
+most of what comes after them. Installs the shared and static library plus headers
+and zlib.pc under /usr/local.
+upstream: https://zlib.net/
+license: Zlib
+ported to hdxp by davy
+          
