@@ -1,0 +1,6 @@
+samurai is a small ninja-compatible build tool written in C (no C++ compiler or
+python needed). Meson and cmake projects build with it. Installs samu and a ninja
+symlink under /usr/local.
+upstream: https://github.com/michaelforney/samurai
+license: ISC, Apache-2.0
+ported to hdxp by davy
