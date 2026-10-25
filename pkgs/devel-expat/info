@@ -1,0 +1,6 @@
+expat is a small, fast XML parser library written in C, used by wayland, fontconfig
+and many others. Installs the shared library, headers, expat.pc and the xmlwf tool
+under /usr/local.
+upstream: https://libexpat.github.io/
+license: MIT
+ported to hdxp by davy
