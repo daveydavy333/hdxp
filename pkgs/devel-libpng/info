@@ -1,0 +1,7 @@
+libpng is the reference library for reading and writing PNG images, needed by
+freetype, cairo and most graphics software. Installs the shared library, headers,
+libpng.pc and the libpng-config, png-fix-itxt and pngfix tools under /usr/local.
+upstream: https://www.libpng.org/pub/png/libpng.html
+license: libpng-2.0
+ported to hdxp by davy
+                           
