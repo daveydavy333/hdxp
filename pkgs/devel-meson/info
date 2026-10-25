@@ -1,0 +1,7 @@
+Meson is the build system used by wayland, libinput, libxkbcommon, mesa and most of
+the modern graphics stack. It is pure Python, so this port copies it to
+/usr/local/lib/meson and installs a small meson wrapper in /usr/local/bin (no pip
+needed). It builds with samurai (ninja) and finds libraries through pkgconf.
+upstream: https://mesonbuild.com/
+license: Apache-2.0
+ported to hdxp by davy
