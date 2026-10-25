@@ -1,0 +1,6 @@
+pixman is the low-level pixel manipulation library (compositing, rasterization) used
+by swc, wld and most 2D graphics stacks. Built without tests, demos, gtk or png.
+Installs libpixman-1, headers and pixman-1.pc under /usr/local.
+upstream: https://www.pixman.org/
+license: MIT
+ported to hdxp by davy
