@@ -1,0 +1,7 @@
+FreeType is the font rendering library behind nearly every graphical text stack.
+Built with zlib and PNG support (compressed fonts and color bitmap glyphs); HarfBuzz,
+bzip2 and brotli are left out for now. Installs the shared library, headers (under
+include/freetype2) and freetype2.pc under /usr/local.
+upstream: https://freetype.org/
+license: FTL
+ported to hdxp by davy
