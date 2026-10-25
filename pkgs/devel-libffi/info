@@ -1,0 +1,6 @@
+libffi is the foreign function interface library: it lets a program call functions
+whose signature is only known at run time. Wayland needs it. Installs the shared
+library, headers and libffi.pc under /usr/local.
+upstream: https://github.com/libffi/libffi
+license: MIT
+ported to hdxp by davy
