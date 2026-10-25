@@ -1,0 +1,7 @@
+Python 3, the language runtime that meson and the mesa build scripts need. A minimal
+build: shared libpython, system expat and libffi, no OpenSSL, sqlite, readline or tk,
+and no pip (ensurepip is off). Installs python3, a python symlink and the standard
+library under /usr/local.
+upstream: https://www.python.org/
+license: PSF-2.0
+ported to hdxp by davy
