@@ -1,0 +1,7 @@
+pkgconf is a pkg-config compatible tool: it reports the compile and link flags that
+libraries ask for in their .pc files. Meson and most build systems need it to find
+libraries. Installs pkgconf, a pkg-config symlink, libpkgconf and its headers under
+/usr/local; searches /usr/local/lib/pkgconfig first.
+upstream: https://github.com/pkgconf/pkgconf
+license: ISC
+ported to hdxp by davy
