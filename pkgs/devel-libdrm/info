@@ -1,0 +1,7 @@
+libdrm is the userspace library for the kernel's DRM/KMS graphics interface, which
+compositors and mesa use to drive displays and GPUs. Built with the AMD backends
+(radeon, amdgpu) and the generic core; Intel, nouveau and the embedded SoC drivers
+are off for now. Installs libdrm*, headers and .pc files under /usr/local.
+upstream: https://dri.freedesktop.org/libdrm/
+license: MIT
+ported to hdxp by davy
