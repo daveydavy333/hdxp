@@ -1,0 +1,7 @@
+Wayland is the display server protocol library: libwayland-client, libwayland-server,
+libwayland-cursor, libwayland-egl and the wayland-scanner code generator. Built
+without docs, tests or DTD validation. Installs libraries, headers, .pc files and
+wayland-scanner under /usr/local.
+upstream: https://wayland.freedesktop.org/
+license: MIT
+ported to hdxp by davy
