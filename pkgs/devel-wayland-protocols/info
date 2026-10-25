@@ -1,0 +1,7 @@
+wayland-protocols is the collection of stable, staging and unstable protocol
+extensions (xdg-shell, viewporter, and so on) that compositors and clients build
+against. It is XML and a few pkg-config files only. Installs under
+/usr/local/share/wayland-protocols.
+upstream: https://wayland.freedesktop.org/
+license: MIT
+ported to hdxp by davy
