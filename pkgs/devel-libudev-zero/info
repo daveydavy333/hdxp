@@ -1,0 +1,7 @@
+libudev-zero is a small daemonless replacement for libudev: it provides the libudev
+API (device enumeration, properties, hotplug monitor) from sysfs and kernel uevents,
+with no udevd needed. libinput and other input libraries link against it. Installs
+libudev.so.1, libudev.h and libudev.pc under /usr/local.
+upstream: https://github.com/illiliti/libudev-zero
+license: ISC
+ported to hdxp by davy
