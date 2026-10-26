@@ -1,0 +1,8 @@
+libxkbcommon turns keyboard layouts (from xkeyboard-config) into keymaps and keysym
+handling for wayland compositors and clients. Built without X11, wayland, docs, the
+xkbcli tools and the layout registry (which would need libxml2). Needs bison to build,
+which the base system provides. Installs libxkbcommon, headers and xkbcommon.pc under
+/usr/local; keyboard data is read from /usr/local/share/X11/xkb.
+upstream: https://xkbcommon.org/
+license: MIT
+ported to hdxp by davy
