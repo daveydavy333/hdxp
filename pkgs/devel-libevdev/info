@@ -1,0 +1,8 @@
+libevdev is the wrapper library for the kernel's evdev input devices (keyboards, mice,
+touchpads). libinput and swc use it. Built without tests or docs; installs libevdev,
+headers, libevdev.pc and a few small tools (libevdev-tweak-device, mouse-dpi-tool, touchpad-edge-detector) under /usr/local.
+The source is the Ubuntu archive's +dfsg repack of the upstream release (upstream's
+own hosts are not reachable from the author's build box); the pin is of that file.
+upstream: https://www.freedesktop.org/software/libevdev/
+license: MIT
+ported to hdxp by davy
