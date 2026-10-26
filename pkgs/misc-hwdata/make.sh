@@ -8,6 +8,6 @@ cd "$SRC"
 echo "$SHA256  $TARBALL" | sha256sum -c -
 [ -d "hwdata-$VER" ] || tar xzf "$TARBALL"
 cd "hwdata-$VER"
-./configure --prefix=/usr/local
+./configure --prefix=/usr/local --disable-blacklist
 if [ "$(id -u)" -eq 0 ]; then SU=""; else SU=doas; fi
 $SU make install

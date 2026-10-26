@@ -1,7 +1,8 @@
 hwdata is the database of hardware identifiers: PCI and USB vendor and device names
 (pci.ids, usb.ids) and monitor vendor ids (pnp.ids). libdisplay-info needs pnp.ids to
-name monitors, and libudev-zero reads usb.ids. Pure data, no build step. Installs
-under /usr/local/share/hwdata with a hwdata.pc in /usr/local/share/pkgconfig.
+name monitors, and libudev-zero reads usb.ids. Pure data, no build step; the module
+blacklist file is left out because busybox install has no -T. Installs under
+/usr/local/share/hwdata with a hwdata.pc in /usr/local/share/pkgconfig.
 upstream: https://github.com/vcrhonek/hwdata
 license: GPL-2.0-or-later, XFree86-1.0
 ported to hdxp by davy
