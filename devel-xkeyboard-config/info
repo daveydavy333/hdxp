@@ -1,7 +1,0 @@
-xkeyboard-config is the database of keyboard layouts, models, variants and options
-that libxkbcommon compiles into keymaps. Pure data, no translations. Installs to
-/usr/local/share/xkeyboard-config-2 with a /usr/local/share/X11/xkb symlink to it.
-upstream: https://www.freedesktop.org/wiki/Software/XKeyboardConfig/
-license: MIT
-ported to hdxp by davy
-                        
