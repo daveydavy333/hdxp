@@ -1,0 +1,5 @@
+tllist is a single-header typed linked list library in C, used by fcft and foot.
+Installs tllist.h and tllist.pc under /usr/local.
+upstream: https://codeberg.org/dnkl/tllist
+license: MIT
+ported to hdxp by davy
