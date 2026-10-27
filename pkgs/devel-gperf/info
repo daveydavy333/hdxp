@@ -1,0 +1,6 @@
+GNU gperf generates perfect hash functions for fixed sets of keywords. fontconfig needs
+it at build time to produce its object-name lookup table. A C++ program; installs the
+gperf binary, its man page and docs under /usr/local.
+upstream: https://www.gnu.org/software/gperf/
+license: GPL-3.0-or-later
+ported to hdxp by davy
