@@ -1,7 +1,8 @@
 dwl is a compact, dwm-style tiling compositor for wayland, built on wlroots 0.20. This
 port builds it without Xwayland (no X11 apps) and, until mesa is ported, on wlroots'
 software renderer. It reads its settings from config.h at build time: if
-/etc/hdxi/dwl-config.h exists it is used, otherwise dwl's default config.def.h.
+/etc/hdxi/dwl-config.h exists it is used, otherwise the config.h already in the
+source tree, or dwl's default config.def.h if there is none.
 Installs dwl, its man page and a wayland-sessions desktop file under /usr/local.
 upstream: https://codeberg.org/dwl/dwl
 license: GPL-3.0-or-later, MIT, CC0-1.0
