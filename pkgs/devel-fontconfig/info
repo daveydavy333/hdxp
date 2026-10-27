@@ -1,0 +1,7 @@
+fontconfig finds fonts and matches them to what an application asks for. fcft and foot
+need it. Built without docs and translations. Installs libfontconfig, headers,
+fontconfig.pc, the fc-* tools and its configuration under /usr/local; it looks for
+fonts in /usr/local/share/fonts and /usr/share/fonts.
+upstream: https://www.freedesktop.org/wiki/Software/fontconfig/
+license: HPND
+ported to hdxp by davy
