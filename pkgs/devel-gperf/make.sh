@@ -8,7 +8,7 @@ cd "$SRC"
 echo "$SHA256  $TARBALL" | sha256sum -c -
 [ -d "gperf-$VER" ] || tar xzf "$TARBALL"
 cd "gperf-$VER"
-CFLAGS="-O2 -std=gnu17" CXXFLAGS="-O2 -std=gnu++98" ./configure --prefix=/usr/local
+CFLAGS="-O2 -std=gnu17 -include string.h" CXXFLAGS="-O2 -std=gnu++98" ./configure --prefix=/usr/local
 make -j"$(nproc 2>/dev/null || echo 1)"
 if [ "$(id -u)" -eq 0 ]; then SU=""; else SU=doas; fi
 $SU make install
