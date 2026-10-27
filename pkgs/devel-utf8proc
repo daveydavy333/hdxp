@@ -1,6 +1,0 @@
-utf8proc is a small C library for Unicode text: normalization, case mapping and
-character width. foot and fcft use it for terminal text handling. Installs the shared
-and static library, utf8proc.h and libutf8proc.pc under /usr/local.
-upstream: https://juliastrings.github.io/utf8proc/
-license: MIT
-ported to hdxp by davy
