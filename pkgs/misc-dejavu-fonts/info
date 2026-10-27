@@ -1,0 +1,6 @@
+DejaVu is a family of clear, free fonts (Sans, Sans Mono, Serif) covering Latin, Greek,
+Cyrillic and many symbols. It gives fontconfig and foot a default monospace font.
+Installs the TrueType files in /usr/local/share/fonts/dejavu.
+upstream: https://dejavu-fonts.github.io/
+license: Bitstream-Vera, Public-Domain
+ported to hdxp by davy
