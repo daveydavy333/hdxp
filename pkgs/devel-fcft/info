@@ -1,0 +1,6 @@
+fcft is a small font loading and glyph rasterization library built on fontconfig and
+freetype, used by foot. Built without HarfBuzz text shaping and docs, with its bundled
+SVG glyph support. Installs libfcft, headers and fcft.pc under /usr/local.
+upstream: https://codeberg.org/dnkl/fcft
+license: MIT
+ported to hdxp by davy
