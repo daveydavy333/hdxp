@@ -1,0 +1,8 @@
+foot is a fast, lightweight wayland terminal emulator, and the default terminal in dwl's
+configuration. Built without docs, utmp logging, grapheme clustering and its own
+terminfo files (it announces itself as xterm-256color instead). Installs foot,
+footclient, its themes and a default foot.ini under /usr/local. Needs a font such as
+misc-dejavu-fonts to draw anything.
+upstream: https://codeberg.org/dnkl/foot
+license: MIT
+ported to hdxp by davy
