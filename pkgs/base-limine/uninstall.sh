@@ -1,10 +1,9 @@
 # runs as root from the port folder, after you confirm.
-# hdx removes the binaries itself (situation, sctl, init, poweroff, reboot, halt).
-# this removes the rest of what install.sh put down.
-rm -f /lib/situation.sh
-rm -f /etc/rc.d/boot/00-firmware.sh /etc/rc.d/boot/10-audio-perms.sh
-# only remove /sbin/init if it is the link this port made
-if [ "$(readlink /sbin/init)" = ../bin/situation ]; then
-    rm -f /sbin/init
+# hdx removes /usr/bin/limine itself. this removes the rest.
+# only remove the efi loader if it is the one this port installed
+if [ -f /boot/EFI/BOOT/BOOTX64.EFI ] && [ -f /usr/share/limine/BOOTX64.EFI ] \
+   && cmp -s /boot/EFI/BOOT/BOOTX64.EFI /usr/share/limine/BOOTX64.EFI; then
+    rm -f /boot/EFI/BOOT/BOOTX64.EFI
 fi
-# /etc/rc.d, /etc/sv and any scripts of your own are left alone
+rm -rf /usr/share/limine
+# /boot/limine.conf is yours and is left alone
