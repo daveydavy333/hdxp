@@ -1,7 +1,0 @@
-tllist is a single-header typed linked list library in C, used by fcft and foot.
-Installs tllist.h and tllist.pc under /usr/local.
-The source is the Ubuntu archive's copy of the upstream release tarball (upstream's
-own host is not reachable from the author's build box); the pin is of that file.
-upstream: https://codeberg.org/dnkl/tllist
-license: MIT
-ported to hdxp by davy
