@@ -23,5 +23,7 @@ $SU mkdir -p "$DEST/usr/share/hdxi" "$DEST/usr/local/bin"
 $SU tar xJf "$BUNDLE" -C "${DEST:-/}"
 $SU cp created.txt "$DEST/usr/share/hdxi/firefox-created.txt"
 
-printf '#!/bin/sh\nexport MOZ_ENABLE_WAYLAND=1\nexec /usr/lib/firefox/firefox "$@"\n' > firefox-wrapper
+# put the system library directories ahead of /usr/local/lib: Firefox needs its own patched libpng (APNG) and
+# other library versions that differ from the ones built into /usr/local
+printf '#!/bin/sh\nexport MOZ_ENABLE_WAYLAND=1\nexport LD_LIBRARY_PATH=/usr/lib:/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}\nexec /usr/lib/firefox/firefox "$@"\n' > firefox-wrapper
 $SU install -m 755 firefox-wrapper "$DEST/usr/local/bin/firefox"
