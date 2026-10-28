@@ -1,8 +1,9 @@
 SRC="${HDX_SRC:-/hdxp/src/misc-firefox-src}"
 VER=151.0.3-r0-alpine3.24
 BUNDLE="firefox-bundle-$VER.tar.xz"
-URL="${HDX_URL:-https://github.com/daveydavy333/HDXI/releases/download/firefox-151.0.3/$BUNDLE}"
-SHA256=5f0b7bd02e712b5635ce53129d24eef6379d4ba028cd0553753b4a16a26fcbb0
+TAG=firefox-151.0.3
+URL="${HDX_URL:-https://github.com/daveydavy333/hdxp/releases/download/$TAG/$BUNDLE}"
+SHA256=6e329930a11eb0619baffaee6de5fd5c4933d6b37290fbefe4e3e778ce730c53
 DEST="${DESTDIR:-}"
 mkdir -p "$SRC"
 cd "$SRC"
