@@ -1,0 +1,9 @@
+Firefox is Mozilla's full web browser, with modern JavaScript, video and WebAssembly.
+This port installs it as a ready-made set of files together with the GTK3 and media
+libraries it needs, so nothing else has to be built. It runs natively on wayland
+(the firefox launcher in /usr/local/bin sets MOZ_ENABLE_WAYLAND=1) and uses software
+rendering until GPU drivers are available. The files go in /usr and /etc, and removing
+the port deletes only the files it created.
+upstream: https://www.mozilla.org/firefox/
+license: MPL-2.0, and the licenses of the bundled libraries
+ported to hdxp by davy
