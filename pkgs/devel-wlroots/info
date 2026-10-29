@@ -3,8 +3,7 @@ DRM/KMS output, libinput input, a scene graph and the common protocol implementa
 Built with the DRM and libinput backends and the software (pixman) renderer only: no
 mesa/GLES2, Vulkan, gbm, Xwayland or color management yet, so no GPU acceleration and
 no X11 apps. Installs libwlroots-0.20, headers and wlroots-0.20.pc under /usr/local.
-The source is the Ubuntu archive's copy of the upstream release tarball (upstream's
-own host is not reachable from the author's build box); the pin is of that file.
+The source is the Ubuntu archive's copy of the upstream release tarball.
 upstream: https://gitlab.freedesktop.org/wlroots/wlroots
 license: MIT
 ported to hdxp by davy
