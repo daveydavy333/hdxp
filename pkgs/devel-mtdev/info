@@ -1,8 +1,7 @@
 mtdev translates multitouch protocol events from touchscreens and touchpads into a
 stable form; libinput uses it. Installs libmtdev, headers, mtdev.pc and the mtdev-test
 tool under /usr/local.
-The source is the Ubuntu archive's copy of the upstream release (upstream's own host
-is not reachable from the author's build box); the pin is of that file.
+The source is the Ubuntu archive's copy of the upstream release
 upstream: https://bitmath.org/code/mtdev/
 license: MIT
 ported to hdxp by davy
