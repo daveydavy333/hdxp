@@ -3,8 +3,7 @@ needing to run as root: it talks to the seatd daemon, or uses its built-in seatd
 the compositor itself has the privileges. This port builds seatd (the daemon and
 seatd-launch helper) and libseat with the seatd and built-in backends; logind support
 is off. Installs libseat, libseat.h, libseat.pc and the seatd binaries under /usr/local.
-The source is the Ubuntu archive's copy of the upstream release tarball (upstream's
-own host is not reachable from the author's build box); the pin is of that file.
+The source is the Ubuntu archive's copy of the upstream release tarball
 upstream: https://sr.ht/~kennylevinsen/seatd/
 license: MIT
 ported to hdxp by davy
