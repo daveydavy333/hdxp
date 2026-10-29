@@ -2,8 +2,7 @@ libinput handles keyboards, mice, touchpads and other input devices for wayland
 compositors such as swc. Built against libudev-zero (no udev daemon), libevdev and
 mtdev; without libwacom, the debug GUI, tests and docs. Installs libinput, headers,
 libinput.pc, the libinput command and its helper tools under /usr/local.
-The source is the Ubuntu archive's copy of the upstream release tarball (upstream's
-own host is not reachable from the author's build box); the pin is of that file.
+The source is the Ubuntu archive's copy of the upstream release tarball
 upstream: https://www.freedesktop.org/wiki/Software/libinput/
 license: MIT
 ported to hdxp by davy
