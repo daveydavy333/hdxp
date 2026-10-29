@@ -1,8 +1,7 @@
 libdisplay-info reads EDID and DisplayID data from monitors (names, supported modes,
 colorimetry). wlroots uses it to identify outputs. Installs libdisplay-info, headers,
 libdisplay-info.pc and the di-edid-decode tool under /usr/local.
-The source is the Ubuntu archive's copy of the upstream release tarball (upstream's
-own host is not reachable from the author's build box); the pin is of that file.
+The source is the Ubuntu archive's copy of the upstream release tarball 
 upstream: https://gitlab.freedesktop.org/emersion/libdisplay-info
 license: MIT
 ported to hdxp by davy
