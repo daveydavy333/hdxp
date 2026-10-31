@@ -1,10 +1,24 @@
-SRC="${HDX_SRC:-/hdxp/src/base-situation-src}"
-[ -d "$SRC/.git" ] || git clone https://codeberg.org/derivelinux/situation "$SRC"
-# pinned to the commit tested in the first hdxi boot
-git -C "$SRC" checkout -q ec064d44f0d819f8523633851abc9b547bff6eb1
+VER=12.4.1
+SHA=aa43fd0124096014c5849d63249765ab396d57b2e192ce7da9c8999da0f282e9
+TAR="limine-$VER.tar.xz"
+SRC="${HDX_SRC:-/hdxp/src/base-limine-src}"
+
+mountpoint -q /boot || { echo "mount your EFI System Partition at /boot first"; exit 1; }
+
+mkdir -p "$SRC"
 cd "$SRC"
+[ -f "$TAR" ] || curl -fLO "https://github.com/limine-bootloader/limine/releases/download/v$VER/$TAR"
+echo "$SHA  $TAR" | sha256sum -c -
+[ -d "limine-$VER" ] || tar -xf "$TAR"
+cd "limine-$VER"
+
+CC_FOR_TARGET=gcc LD_FOR_TARGET=ld OBJCOPY_FOR_TARGET=objcopy OBJDUMP_FOR_TARGET=objdump READELF_FOR_TARGET=readelf ./configure --prefix=/usr --enable-uefi-x86-64
+make -j"$(nproc)"
+
 if [ "$(id -u)" -eq 0 ]; then SU=""; else SU=doas; fi
-$SU sh ./install.sh
-# install.sh makes absolute //bin/... links; initramfs checks need relative ones
-$SU ln -sf ../bin/situation /sbin/init
-$SU ln -sf situation /bin/init
+$SU make install
+
+EFI=/usr/share/limine/BOOTX64.EFI
+[ -f "$EFI" ] || { echo "expected $EFI, found:"; ls /usr/share/limine; exit 1; }
+$SU mkdir -p /boot/EFI/BOOT
+$SU cp "$EFI" /boot/EFI/BOOT/BOOTX64.EFI
