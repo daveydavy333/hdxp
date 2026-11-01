@@ -1,0 +1,8 @@
+firmware for the Intel Wi-Fi 6 AX201 (QuZ-a0-hr-b0, iwlmvm; PCIe 8086:a0f0), used by the iwlwifi driver.
+only iwlwifi-QuZ-a0-hr-b0-77.ucode from linux-firmware is installed, into /lib/firmware.
+the kernel builds the driver in and embeds this file (no initramfs to load it from), so install this
+port before base-kernel: hdx i misc-iwlwifi-firmware, then hdx i -f base-kernel.
+upstream: https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git
+license: see LICENCE.iwlwifi_firmware (redistributable), installed next to the firmware
+ported to hdxp by davy
+tested on an hp elitebook with this card.
