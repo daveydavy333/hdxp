@@ -1,0 +1,9 @@
+clear
+infocmp
+tic
+toe
+tput
+tset
+reset
+captoinfo
+infotocap
