@@ -1,0 +1,8 @@
+The boot scripts that every HDXI init so far runs from
+/etc/rc.d/boot, in order: 00-firmware.sh
+(load common driver modules early), 04-fsck.sh (check vfat filesystems from /etc/fstab,
+the ESP, before they are mounted), 05-mount.sh (mount everything in /etc/fstab) and
+10-audio-perms.sh (audio group and mode on /dev/snd). situation runs them itself and
+runit's stage 1 loops over them. 03-udev.sh comes from sys-eudev. The base tarball ships
+this port, so every install has them whichever init is chosen later.
+ported to hdxp by davy
