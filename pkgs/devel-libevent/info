@@ -1,0 +1,6 @@
+libevent is the event notification library tmux is built on. Built shared only, without
+openssl support, samples and the regression tests. Installs libevent*.so, headers and
+libevent.pc under /usr/local, plus the event_rpcgen.py helper.
+upstream: https://libevent.org/
+license: BSD-3-Clause
+ported to hdxp by davy
