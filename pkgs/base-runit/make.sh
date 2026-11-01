@@ -13,6 +13,10 @@ cd "admin/runit-$VER"
 sed -i 's/short x\[4\]/gid_t x[4]/' src/chkshsgr.c
 grep -q 'Wno-error=incompatible' src/conf-cc || \
     sed -i '1s/$/ -Wno-error=incompatible-pointer-types -Wno-error=implicit-function-declaration -Wno-error=int-conversion -Wno-error=implicit-int/' src/conf-cc
+# gcc 15 defaults to C23, where "foo()" means "foo(void)": runit's old declarations need gnu99
+grep -q 'std=gnu99' src/conf-cc || sed -i '1s/$/ -std=gnu99/' src/conf-cc
+# start the build from scratch so a retry picks up the new flags
+rm -rf compile command
 package/compile
 if [ "$(id -u)" -eq 0 ]; then SU=""; else SU=doas; fi
 # runit hardcodes /sbin/runit, so the two init binaries go in /sbin
