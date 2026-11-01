@@ -1,0 +1,6 @@
+#!/bin/sh
+# reboot: under runit use runit-init, under situation hand over to situation's own command
+case "$(cat /proc/1/comm 2>/dev/null)" in
+    runit*) exec runit-init 6 ;;
+    *)      exec /bin/reboot "$@" ;;
+esac

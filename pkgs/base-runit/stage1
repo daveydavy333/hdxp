@@ -1,0 +1,29 @@
+#!/bin/sh
+# runit stage 1: one-time system setup, then the same /etc/rc.d/boot scripts situation uses
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+export PATH
+exec 2>&1
+
+# normal operation: stage 3 only runs once runit-init 0|6 makes stopit executable
+touch /etc/runit/stopit
+chmod 0 /etc/runit/stopit
+rm -f /etc/runit/reboot
+
+# virtual filesystems (safe if the kernel or a boot script already mounted them)
+mountpoint -q /proc    || mount -t proc proc /proc
+mountpoint -q /sys     || mount -t sysfs sysfs /sys
+mountpoint -q /dev     || mount -t devtmpfs devtmpfs /dev
+mkdir -p /dev/pts /dev/shm
+mountpoint -q /dev/pts || mount -t devpts devpts /dev/pts
+mountpoint -q /dev/shm || mount -t tmpfs tmpfs /dev/shm
+mountpoint -q /run     || mount -t tmpfs -o mode=0755,nosuid,nodev tmpfs /run
+mount -o remount,rw / 2>/dev/null
+
+[ -s /etc/hostname ] && hostname -F /etc/hostname
+ip link set lo up 2>/dev/null
+
+# udev, fsck, fstab mounts, firmware, audio permissions: the same boot scripts as situation
+for s in /etc/rc.d/boot/*.sh; do
+    [ -x "$s" ] && "$s"
+done
+exit 0

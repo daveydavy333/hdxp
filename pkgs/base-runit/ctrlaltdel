@@ -1,0 +1,3 @@
+#!/bin/sh
+# runit runs this on ctrl-alt-del (if the kernel is set to send it to init)
+exec runit-init 6

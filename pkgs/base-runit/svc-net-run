@@ -1,0 +1,19 @@
+#!/bin/sh
+# dhcp on the first physical ethernet-style interface that has a link.
+# lo and virtual devices (sit0, tunnels, bridges) have no "device" entry,
+# so they are skipped. waits until a link shows up (cable, usb tether, ...).
+exec 2>&1
+NETDIR="${NETDIR:-/sys/class/net}"
+while :; do
+    for d in "$NETDIR"/*; do
+        [ -e "$d/device" ] || continue
+        [ "$(cat "$d/type" 2>/dev/null)" = 1 ] || continue
+        n=${d##*/}
+        ip link set "$n" up 2>/dev/null
+        [ "$(cat "$d/carrier" 2>/dev/null)" = 1 ] && break 2
+    done
+    sleep 2
+done
+
+# dhcp client output goes to a log, not the console
+exec udhcpc -f -i "$n" >/var/log/net.log 2>&1

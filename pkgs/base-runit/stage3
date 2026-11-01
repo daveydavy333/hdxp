@@ -1,0 +1,18 @@
+#!/bin/sh
+# runit stage 3: shutdown. runit powers off or reboots when this script ends
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+export PATH
+exec 2>&1
+echo "stopping services..."
+sv force-stop /etc/service/* 2>/dev/null
+sv exit /etc/service/* 2>/dev/null
+echo "terminating remaining processes..."
+killall5 -TERM 2>/dev/null
+sleep 1
+killall5 -KILL 2>/dev/null
+sync
+swapoff -a 2>/dev/null
+umount -a -r 2>/dev/null
+mount -o remount,ro / 2>/dev/null
+sync
+exit 0
