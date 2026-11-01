@@ -17,15 +17,28 @@ for o in EXT4_FS VIRTIO_BLK VIRTIO_PCI VIRTIO_NET DEVTMPFS UEVENT_HELPER; do
 done
 scripts/config --disable DEBUG_INFO_BTF
 scripts/config --enable FB --enable DRM_FBDEV_EMULATION --enable FRAMEBUFFER_CONSOLE --enable FRAMEBUFFER_CONSOLE_DETECT_PRIMARY --enable SYSFB_SIMPLEFB --enable DRM_SIMPLEDRM
-scripts/config --enable MMC --enable MMC_BLOCK --enable MMC_SDHCI --enable MMC_SDHCI_PCI --enable BLK_DEV_SD --enable SATA_AHCI --enable USB_XHCI_HCD --enable USB_XHCI_PCI --enable USB_EHCI_HCD --enable USB_EHCI_PCI --enable USB_STORAGE --enable USB_HID --enable HID_GENERIC --enable KEYBOARD_ATKBD
-scripts/config --enable PCI --enable WIRELESS --enable CFG80211 --enable MAC80211 --enable RFKILL --enable WLAN --enable WLAN_VENDOR_ATH --enable ATH10K --enable ATH10K_PCI --enable FW_LOADER
-# the wifi firmware is built into the kernel (no initramfs to load it from), so it has to be installed first
+scripts/config --enable MMC --enable MMC_BLOCK --enable MMC_SDHCI --enable MMC_SDHCI_PCI --enable BLK_DEV_SD --enable SATA_AHCI --enable BLK_DEV_NVME --enable USB_XHCI_HCD --enable USB_XHCI_PCI --enable USB_EHCI_HCD --enable USB_EHCI_PCI --enable USB_STORAGE --enable USB_HID --enable HID_GENERIC --enable KEYBOARD_ATKBD
+scripts/config --enable PCI --enable WIRELESS --enable CFG80211 --enable MAC80211 --enable RFKILL --enable WLAN --enable WLAN_VENDOR_ATH --enable ATH10K --enable ATH10K_PCI --enable WLAN_VENDOR_INTEL --enable IWLWIFI --enable IWLMVM --enable FW_LOADER
+# wifi firmware is built into the kernel (no initramfs to load it from), so it has to be installed first
+FW=""
 ATH_FW=ath10k/QCA9377/hw1.0
 if [ -f "/lib/firmware/$ATH_FW/firmware-6.bin" ]; then
-    scripts/config --set-str EXTRA_FIRMWARE "$ATH_FW/firmware-6.bin $ATH_FW/board-2.bin $ATH_FW/board.bin"
-    scripts/config --set-str EXTRA_FIRMWARE_DIR /lib/firmware
+    FW="$ATH_FW/firmware-6.bin $ATH_FW/board-2.bin $ATH_FW/board.bin"
 else
     echo "note: no ath10k firmware in /lib/firmware, building without it (hdx i misc-ath10k-firmware first for wifi)"
+fi
+IWL_FW=iwlwifi-QuZ-a0-hr-b0-77.ucode
+if [ -s "/lib/firmware/$IWL_FW" ]; then
+    FW="$FW $IWL_FW"
+elif [ -e "/lib/firmware/$IWL_FW" ]; then
+    echo "error: /lib/firmware/$IWL_FW is empty, reinstall it (hdx i -f misc-iwlwifi-firmware)"
+    exit 1
+else
+    echo "note: no iwlwifi firmware in /lib/firmware, building without it (hdx i misc-iwlwifi-firmware first for intel wifi)"
+fi
+if [ -n "$FW" ]; then
+    scripts/config --set-str EXTRA_FIRMWARE "${FW# }"
+    scripts/config --set-str EXTRA_FIRMWARE_DIR /lib/firmware
 fi
 scripts/config --set-str UEVENT_HELPER_PATH ""
 make olddefconfig
