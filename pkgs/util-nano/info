@@ -1,0 +1,7 @@
+GNU nano, the small friendly terminal text editor.
+Built with UTF-8 support on the wide-char ncurses, without translations, the spell checker and libmagic. The sample
+syntax files are installed in /usr/local/share/nano; to turn highlighting on, add
+include "/usr/local/share/nano/*.nanorc" to /etc/nanorc or ~/.nanorc.
+upstream: https://www.nano-editor.org/
+license: GPL-3.0-or-later
+ported to hdxp by davy
