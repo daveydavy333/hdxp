@@ -1,0 +1,9 @@
+eudev is the standalone udev: udevd, udevadm and the stock rules. It creates device
+permissions (input, audio, video groups), handles hotplug and coldplug at boot through
+03-udev.sh in /etc/rc.d/boot, and provides the real libudev. It replaces libudev-zero:
+it installs libudev.so.1 over it, which libinput and wlroots keep using without a rebuild.
+Built without manpages, blkid, kmod, selinux and mtd support, with the hwdb enabled.
+Rules: /usr/local/lib/udev/rules.d, your own rules: /etc/udev/rules.d.
+upstream: https://github.com/eudev-project/eudev
+license: GPL-2.0-or-later (libudev: LGPL-2.1-or-later)
+ported to hdxp by davy
