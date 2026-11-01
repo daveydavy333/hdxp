@@ -1,0 +1,9 @@
+ncurses is the terminal UI library that nano, tmux, htop, vim and most curses programs
+link against. This port builds the wide-character version (libncursesw, so UTF-8 works)
+with plain-name symlinks (libncurses.so, ncurses.pc), headers in /usr/local/include, and
+the terminfo database in /usr/local/share/terminfo (TERM=linux, xterm and foot's
+own entry are looked up there too). Also installs tput, tic, infocmp, clear and reset.
+No C++ bindings, Ada, manpages or tests.
+upstream: https://invisible-island.net/ncurses/
+license: MIT
+ported to hdxp by davy
