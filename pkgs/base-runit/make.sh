@@ -9,6 +9,10 @@ cd "$SRC"
 echo "$SHA256  $TARBALL" | sha256sum -c -
 [ -d "admin/runit-$VER" ] || tar xzf "$TARBALL"
 cd "admin/runit-$VER"
+# runit is old C: gcc 14+ turns its pointer-type and implicit-declaration warnings into errors
+sed -i 's/short x\[4\]/gid_t x[4]/' src/chkshsgr.c
+grep -q 'Wno-error=incompatible' src/conf-cc || \
+    sed -i '1s/$/ -Wno-error=incompatible-pointer-types -Wno-error=implicit-function-declaration -Wno-error=int-conversion -Wno-error=implicit-int/' src/conf-cc
 package/compile
 if [ "$(id -u)" -eq 0 ]; then SU=""; else SU=doas; fi
 # runit hardcodes /sbin/runit, so the two init binaries go in /sbin
