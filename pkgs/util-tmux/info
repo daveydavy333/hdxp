@@ -1,0 +1,6 @@
+tmux is a terminal multiplexer: several windows and panes in one terminal, sessions that
+survive a disconnect (detach with ctrl-b d, come back with tmux attach). Built without
+utf8proc, systemd and the optional features; needs libevent and ncurses.
+upstream: https://github.com/tmux/tmux
+license: ISC
+ported to hdxp by davy
