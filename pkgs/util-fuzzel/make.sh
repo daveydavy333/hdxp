@@ -9,6 +9,8 @@ echo "$SHA256  $TARBALL" | sha256sum -c -
 [ -d "fuzzel-$VER" ] || tar xf "$TARBALL"
 cd "fuzzel-$VER"
 if [ "$(id -u)" -eq 0 ]; then SU=""; else SU=doas; fi
+# man pages need scdoc, which HDXI does not have yet
+sed -i "/subdir(.doc.)/d" meson.build
 rm -rf build
 meson setup build --prefix=/usr/local --buildtype=release \
   -Denable-cairo=disabled -Dpng-backend=none -Dsvg-backend=none
