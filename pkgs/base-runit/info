@@ -1,12 +1,11 @@
 runit is a small init and service supervisor, with real manuals (smarden.org/runit).
-runit-init runs three stages: /etc/runit/1 (setup, then the same /etc/rc.d/boot/*.sh
-scripts situation uses, so udev, fsck and the fstab mounts keep working), /etc/runit/2
-(runsvdir supervises /etc/service) and /etc/runit/3 (shutdown). Service definitions live
-in /etc/runit/sv/<name>/run and are enabled with a symlink in /etc/service. Ships the
-net (dhcp) and getty-tty1 services, and poweroff/reboot/halt wrappers that use
-runit-init under runit and fall back to situation's own commands under situation.
-It does not replace /sbin/init: situation stays the default. To try runit, add a
-limine entry that boots with init=/sbin/runit-init.
+runit-init runs three stages: /etc/runit/1 (setup, then the /etc/rc.d/boot/*.sh scripts
+from base-bootscripts, so udev, fsck and the fstab mounts run), /etc/runit/2 (runsvdir
+supervises /etc/service) and /etc/runit/3 (shutdown). Service definitions live in
+/etc/runit/sv/<name>/run and are enabled with a symlink in /etc/service. Ships the net
+(dhcp) and getty-tty1 services, and poweroff/reboot/halt wrappers that use runit-init
+under runit and fall back to situation's own commands under situation.
+Boot it with init=/sbin/runit-init on the kernel command line.
 Day to day: sv status /etc/service/*, sv restart net, ln -s /etc/runit/sv/x /etc/service/x
 upstream: https://smarden.org/runit/
 license: BSD-3-Clause
