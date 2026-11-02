@@ -1,0 +1,10 @@
+devel-wayland
+devel-wayland-protocols
+devel-fcft
+devel-fontconfig
+devel-libxkbcommon
+devel-pixman
+devel-tllist
+devel-meson
+devel-samurai
+devel-pkgconf
