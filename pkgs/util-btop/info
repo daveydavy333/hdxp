@@ -1,0 +1,4 @@
+btop, a resource monitor for the terminal. Shows CPU, memory, disks, network and processes with graphs, mouse support and themes. Needs a C++23 compiler to build.
+upstream: https://github.com/aristocratos/btop
+license: Apache-2.0
+ported to hdxp by davy
