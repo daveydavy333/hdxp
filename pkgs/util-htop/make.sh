@@ -9,8 +9,8 @@ echo "$SHA256  $TARBALL" | sha256sum -c -
 [ -d "htop-$VER" ] || tar xf "$TARBALL"
 cd "htop-$VER"
 if [ "$(id -u)" -eq 0 ]; then SU=""; else SU=doas; fi
-# unicode needs the wide-character ncurses; fall back if the ncurses port lacks it
-if pkg-config --exists ncursesw 2>/dev/null; then UNI=--enable-unicode; else UNI=--disable-unicode; fi
-./configure --prefix=/usr/local $UNI
+# the wide-character ncurses (needed for unicode meters) has no pkg-config file here, so just
+# try unicode first and fall back to plain ascii if configure cannot find it
+./configure --prefix=/usr/local --enable-unicode || ./configure --prefix=/usr/local --disable-unicode
 make -j"$(nproc 2>/dev/null || echo 1)"
 $SU make install
