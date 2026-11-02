@@ -9,5 +9,5 @@ echo "$SHA256  $TARBALL" | sha256sum -c -
 [ -d "nnn-$VER" ] || tar xf "$TARBALL"
 cd "nnn-$VER"
 if [ "$(id -u)" -eq 0 ]; then SU=""; else SU=doas; fi
-make -j"$(nproc 2>/dev/null || echo 1)"
+LDLIBS=-lfts make -j"$(nproc 2>/dev/null || echo 1)"
 $SU make install
