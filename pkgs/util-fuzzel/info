@@ -1,0 +1,4 @@
+fuzzel, an application launcher for Wayland compositors. Shows a searchable list of installed applications, or reads a list from stdin in dmenu mode.
+upstream: https://codeberg.org/dnkl/fuzzel
+license: MIT
+ported to hdxp by davy
