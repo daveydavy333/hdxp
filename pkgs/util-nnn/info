@@ -1,0 +1,4 @@
+nnn, a small and fast terminal file manager. Browse, search and open files with a few keystrokes, with plugins, bookmarks and a built-in batch renamer.
+upstream: https://github.com/jarun/nnn
+license: BSD-2-Clause
+ported to hdxp by davy
