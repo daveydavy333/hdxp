@@ -1,4 +1,4 @@
-flex, a fast lexical analyzer generator. Turns pattern descriptions into C scanners.
+flex, a fast lexical analyzer generator. Turns pattern descriptions into C scanners; needed to build Mesa.
 upstream: https://github.com/westes/flex
 license: BSD-style (flex license)
 ported to hdxp by davy
