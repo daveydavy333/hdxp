@@ -1,4 +1,0 @@
-scdoc, a small man page generator. Turns simple markup into man pages; a build tool that foot, fuzzel and many other programs use for their documentation.
-upstream: https://git.sr.ht/~sircmpwn/scdoc
-license: MIT
-ported to hdxp by davy
