@@ -1,0 +1,4 @@
+flex, a fast lexical analyzer generator. Turns pattern descriptions into C scanners.
+upstream: https://github.com/westes/flex
+license: BSD-style (flex license)
+ported to hdxp by davy
