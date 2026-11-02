@@ -1,0 +1,4 @@
+GNU m4, a macro processor. Needed at run time by flex and by many configure scripts.
+upstream: https://www.gnu.org/software/m4/
+license: GPL-3.0-or-later
+ported to hdxp by davy
