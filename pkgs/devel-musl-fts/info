@@ -1,0 +1,4 @@
+musl-fts, an implementation of the fts(3) directory traversal functions, which musl libc does not provide. Installs a static libfts, the fts.h header and a pkg-config file.
+upstream: https://github.com/pullmoll/musl-fts
+license: BSD-3-Clause
+ported to hdxp by davy
