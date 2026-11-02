@@ -1,0 +1,4 @@
+htop, an interactive process viewer for the terminal. Shows CPU, memory and per-process usage, with sorting, tree view and the ability to signal or renice processes.
+upstream: https://htop.dev
+license: GPL-2.0-or-later
+ported to hdxp by davy
