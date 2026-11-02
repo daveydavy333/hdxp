@@ -1,0 +1,4 @@
+CMake, a cross-platform build system generator. Reads CMakeLists.txt files and produces Makefiles or Ninja build files. Built with its bundled libraries and without OpenSSL.
+upstream: https://cmake.org
+license: BSD-3-Clause
+ported to hdxp by davy
