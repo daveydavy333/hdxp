@@ -1,0 +1,4 @@
+firmware for AMD Stoney Ridge graphics (the a6-9220e and similar), from the linux-firmware project. Needed by the amdgpu driver, which base-kernel builds in when this is installed first.
+upstream: https://gitlab.com/kernel-firmware/linux-firmware
+license: redistributable firmware, see the WHENCE file in upstream
+ported to hdxp by davy
