@@ -36,12 +36,35 @@ elif [ -e "/lib/firmware/$IWL_FW" ]; then
 else
     echo "note: no iwlwifi firmware in /lib/firmware, building without it (hdx i misc-iwlwifi-firmware first for intel wifi)"
 fi
+# amd graphics (stoney: the a6-9220e and friends). amdgpu is built in, like the wifi drivers, so its firmware
+# has to be built in too. it is only enabled when all of it is installed: an amdgpu without its firmware takes
+# the screen over from simpledrm and then fails, which leaves no display at all.
+# (hdx i misc-amdgpu-firmware first)
+AMD_FW=""
+AMD_OK=1
+for f in ce pfp me mec rlc sdma uvd vce; do
+    if [ -s "/lib/firmware/amdgpu/stoney_$f.bin" ]; then
+        AMD_FW="$AMD_FW amdgpu/stoney_$f.bin"
+    else
+        AMD_OK=0
+    fi
+done
+if [ "$AMD_OK" -eq 1 ]; then
+    scripts/config --enable DRM_AMDGPU --enable DRM_AMD_DC
+    FW="$FW$AMD_FW"
+else
+    echo "note: no (or incomplete) amdgpu firmware in /lib/firmware, building without amdgpu (hdx i misc-amdgpu-firmware first for amd graphics)"
+fi
 if [ -n "$FW" ]; then
     scripts/config --set-str EXTRA_FIRMWARE "${FW# }"
     scripts/config --set-str EXTRA_FIRMWARE_DIR /lib/firmware
 fi
 scripts/config --set-str UEVENT_HELPER_PATH ""
 make olddefconfig
+if [ "$AMD_OK" -eq 1 ] && ! grep -q '^CONFIG_DRM_AMDGPU=y' .config; then
+    echo "error: DRM_AMDGPU did not stay enabled in the config (a dependency is missing)"
+    exit 1
+fi
 
 make -j"$(nproc)"
 
