@@ -1,0 +1,4 @@
+GNU FriBidi, an implementation of the Unicode bidirectional algorithm, used to lay out right-to-left text.
+upstream: https://github.com/fribidi/fribidi
+license: LGPL-2.1-or-later
+ported to hdxp by davy
