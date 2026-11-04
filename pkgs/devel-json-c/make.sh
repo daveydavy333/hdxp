@@ -12,7 +12,7 @@ rm -rf build
 mkdir build
 cd build
 cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=Release \
-  -DBUILD_STATIC_LIBS=OFF -DBUILD_APPS=OFF -DDISABLE_WERROR=ON
+  -DBUILD_STATIC_LIBS=OFF -DBUILD_APPS=OFF -DDISABLE_WERROR=ON -DCMAKE_POLICY_VERSION_MINIMUM=3.5
 make -j"$(nproc)"
 if [ "$(id -u)" -eq 0 ]; then SU=""; else SU=doas; fi
 $SU make install
