@@ -1,0 +1,15 @@
+gapplication
+gdbus
+gdbus-codegen
+gio
+gio-querymodules
+glib-compile-resources
+glib-compile-schemas
+glib-genmarshal
+glib-gettextize
+glib-mkenums
+gobject-query
+gresource
+gsettings
+gtester
+gtester-report
