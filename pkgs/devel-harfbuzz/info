@@ -1,0 +1,4 @@
+HarfBuzz, a text shaping engine that turns Unicode text into positioned glyphs. Built with FreeType support.
+upstream: https://github.com/harfbuzz/harfbuzz
+license: MIT
+ported to hdxp by davy
