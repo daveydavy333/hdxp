@@ -1,0 +1,4 @@
+Firmware for Intel Tiger Lake graphics (11th generation Core): the display microcontroller (DMC) firmware that the i915 driver loads, which lets the GPU use its low power states.
+upstream: https://gitlab.com/kernel-firmware/linux-firmware
+license: Intel redistributable firmware license (LICENSE.i915 in linux-firmware)
+ported to hdxp by davy
