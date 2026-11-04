@@ -1,0 +1,4 @@
+Pango, a library for laying out and rendering text, with Cairo output. Built on HarfBuzz, FriBidi and FreeType.
+upstream: https://gitlab.gnome.org/GNOME/pango
+license: LGPL-2.0-or-later
+ported to hdxp by davy
