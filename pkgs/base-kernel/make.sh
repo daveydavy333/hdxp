@@ -66,7 +66,9 @@ else
     echo "note: no i915 DMC firmware in /lib/firmware, building without it (hdx i misc-i915-firmware first for intel graphics power management)"
 fi
 # i2c-hid touchpads behind the intel LPSS controller (laptops like the hp elitebook). built in, no initramfs.
-TP_OPTS="I2C I2C_HID_ACPI I2C_DESIGNWARE_PLATFORM MFD_INTEL_LPSS_PCI MFD_INTEL_LPSS_ACPI PINCTRL_TIGERLAKE HID_MULTITOUCH INPUT_MOUSE"
+# COMMON_CLK and PINCTRL are not in the defconfig, and without them the i2c designware driver and the intel pinctrl
+# (which carries the touchpad interrupt) are hidden from the config, so olddefconfig silently drops them.
+TP_OPTS="COMMON_CLK PINCTRL I2C I2C_DESIGNWARE_CORE I2C_DESIGNWARE_PLATFORM PINCTRL_TIGERLAKE MFD_INTEL_LPSS_PCI MFD_INTEL_LPSS_ACPI I2C_HID_ACPI HID_MULTITOUCH INPUT_MOUSE"
 for o in $TP_OPTS; do
     scripts/config --enable "$o"
 done
