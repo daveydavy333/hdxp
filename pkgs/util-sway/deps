@@ -1,0 +1,9 @@
+devel-meson
+devel-wlroots
+devel-json-c
+devel-pcre2
+devel-pango
+devel-cairo
+devel-libevdev
+devel-wayland-protocols
+devel-scdoc
