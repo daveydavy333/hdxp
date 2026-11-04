@@ -1,0 +1,4 @@
+GLib, the low-level core library of the GNOME stack: data structures, the main loop, GObject and GIO.
+upstream: https://gitlab.gnome.org/GNOME/glib
+license: LGPL-2.1-or-later
+ported to hdxp by davy
