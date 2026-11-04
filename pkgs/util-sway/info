@@ -1,0 +1,4 @@
+Sway, a tiling Wayland compositor and drop-in replacement for the i3 window manager, with swaymsg, swaybar and swaynag. Built without the system tray.
+upstream: https://github.com/swaywm/sway
+license: MIT
+ported to hdxp by davy
