@@ -1,0 +1,4 @@
+The gettext header (libintl.h) for musl. musl implements the gettext functions inside libc, this installs the header that declares them so programs like glib can build.
+upstream: https://musl.libc.org
+license: MIT
+ported to hdxp by davy
