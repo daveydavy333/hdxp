@@ -1,0 +1,4 @@
+Cairo, a 2D vector graphics library with FreeType text and PNG, PDF and SVG output. Built without X11 support.
+upstream: https://www.cairographics.org
+license: LGPL-2.1 or MPL-1.1
+ported to hdxp by davy
