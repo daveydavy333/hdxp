@@ -1,0 +1,4 @@
+Perl-compatible regular expression library (PCRE2), the 8-bit library and the pcre2grep tool.
+upstream: https://github.com/PCRE2Project/pcre2
+license: BSD-3-Clause
+ported to hdxp by davy
