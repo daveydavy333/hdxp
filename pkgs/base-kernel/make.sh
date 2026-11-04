@@ -55,12 +55,30 @@ if [ "$AMD_OK" -eq 1 ]; then
 else
     echo "note: no (or incomplete) amdgpu firmware in /lib/firmware, building without amdgpu (hdx i misc-amdgpu-firmware first for amd graphics)"
 fi
+# intel graphics (tiger lake and friends). i915 comes from the defconfig and drives the screen without any
+# firmware, but without the DMC firmware runtime power management is disabled, so this one is optional
+# (hdx i misc-i915-firmware first for intel graphics power management).
+scripts/config --enable DRM_I915
+I915_FW=i915/tgl_dmc_ver2_12.bin
+if [ -s "/lib/firmware/$I915_FW" ]; then
+    FW="$FW $I915_FW"
+else
+    echo "note: no i915 DMC firmware in /lib/firmware, building without it (hdx i misc-i915-firmware first for intel graphics power management)"
+fi
+# i2c-hid touchpads behind the intel LPSS controller (laptops like the hp elitebook). built in, no initramfs.
+TP_OPTS="I2C I2C_HID_ACPI I2C_DESIGNWARE_PLATFORM MFD_INTEL_LPSS_PCI MFD_INTEL_LPSS_ACPI PINCTRL_TIGERLAKE HID_MULTITOUCH INPUT_MOUSE"
+for o in $TP_OPTS; do
+    scripts/config --enable "$o"
+done
 if [ -n "$FW" ]; then
     scripts/config --set-str EXTRA_FIRMWARE "${FW# }"
     scripts/config --set-str EXTRA_FIRMWARE_DIR /lib/firmware
 fi
 scripts/config --set-str UEVENT_HELPER_PATH ""
 make olddefconfig
+for o in $TP_OPTS; do
+    grep -q "^CONFIG_$o=y" .config || echo "note: CONFIG_$o did not stay enabled (touchpad support may be incomplete)"
+done
 if [ "$AMD_OK" -eq 1 ] && ! grep -q '^CONFIG_DRM_AMDGPU=y' .config; then
     echo "error: DRM_AMDGPU did not stay enabled in the config (a dependency is missing)"
     exit 1
