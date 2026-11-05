@@ -3,3 +3,4 @@ devel-python3
 devel-libffi
 devel-pcre2
 devel-zlib
+devel-musl-libintl
