@@ -1,0 +1,4 @@
+GNU GRUB 2, the grand unified bootloader. builds the UEFI (x86_64-efi) version and installs it as /boot/EFI/BOOT/BOOTX64.EFI, with its modules in /boot/grub/x86_64-efi. the configuration file is /boot/grub/grub.cfg. it uses the same EFI path as base-limine, so only one of the two can be active at a time (the replaced file is kept as BOOTX64.EFI.old).
+upstream: https://www.gnu.org/software/grub/
+license: GPL-3.0-or-later
+ported to hdxp by davy
