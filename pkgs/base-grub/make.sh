@@ -12,8 +12,14 @@ echo "$SHA  $TAR" | sha256sum -c -
 [ -d "grub-$VER" ] || tar -xf "$TAR"
 cd "grub-$VER"
 
+# musl has no sys/cdefs.h, and grub's committed gnulib headers include it unconditionally;
+# an empty one is enough, the headers define the macros they need themselves
+mkdir -p "$SRC/shim/sys"
+: > "$SRC/shim/sys/cdefs.h"
+
 # gcc 15 defaults to C23, which breaks old gnulib code and grub's own headers
-export CFLAGS="-O2 -std=gnu17"
+export CFLAGS="-O2 -std=gnu17 -I$SRC/shim"
+export CPPFLAGS="-I$SRC/shim"
 export TARGET_CFLAGS="-Os -std=gnu17"
 
 ./configure --prefix=/usr --sysconfdir=/etc \
