@@ -43,8 +43,8 @@ grub-mkimage -O x86_64-efi -d "$MODDIR" -p /grub -o "$IMG" $MODS
 
 DEST=/boot/EFI/BOOT/BOOTX64.EFI
 $SU mkdir -p /boot/EFI/BOOT /boot/grub/x86_64-efi
-# base-limine uses the same path: keep whatever was there
-[ -f "$DEST" ] && $SU cp "$DEST" "$DEST.old"
+# base-limine uses the same path: keep the first file that was there, never overwrite the backup
+[ -f "$DEST" ] && [ ! -f "$DEST.old" ] && $SU cp "$DEST" "$DEST.old"
 $SU cp "$IMG" "$DEST"
 $SU cp "$MODDIR"/*.mod "$MODDIR"/*.lst /boot/grub/x86_64-efi/
 
