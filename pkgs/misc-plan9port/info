@@ -1,0 +1,4 @@
+Plan 9 from User Space: the Plan 9 userland (the rc shell, mk, the 9p tools, awk, sed, ed and much more) built for unix. everything lives in /usr/local/plan9, and `9 command` (for example `9 rc`) runs a command from it without changing PATH. to use the commands directly, append /usr/local/plan9/bin to the end of PATH. without the X11 headers the system is built without X11, so the graphical programs (acme, sam, rio) are not included.
+upstream: https://9fans.github.io/plan9port
+license: Lucent Public License 1.02 and others (see LICENSE in the tree)
+ported to hdxp by davy
