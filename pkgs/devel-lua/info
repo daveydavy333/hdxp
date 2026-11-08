@@ -1,0 +1,4 @@
+Lua 5.5, a lightweight embeddable scripting language. Installs the static library and headers plus lua5.5.pc for pkg-config.
+upstream: https://www.lua.org
+license: MIT
+ported to hdxp by davy
