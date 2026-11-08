@@ -1,0 +1,4 @@
+RE2, a fast and safe regular expression library for C++.
+upstream: https://github.com/google/re2
+license: BSD-3-Clause
+ported to hdxp by davy
