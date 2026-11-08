@@ -1,0 +1,4 @@
+Abseil, Google's C++ common libraries (needed by re2).
+upstream: https://github.com/abseil/abseil-cpp
+license: Apache-2.0
+ported to hdxp by davy
