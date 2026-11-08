@@ -1,0 +1,4 @@
+glslang, the Khronos reference compiler front end for GLSL and ESSL, producing SPIR-V. Built without SPIRV-Tools (no spirv-opt).
+upstream: https://github.com/KhronosGroup/glslang
+license: BSD-3-Clause, Apache-2.0 and others
+ported to hdxp by davy
