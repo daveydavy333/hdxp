@@ -1,0 +1,4 @@
+muParser, a fast math expression parser library for C++.
+upstream: https://github.com/beltoforion/muparser
+license: BSD-2-Clause
+ported to hdxp by davy
