@@ -1,0 +1,4 @@
+pugixml, a light-weight C++ XML processing library.
+upstream: https://pugixml.org
+license: MIT
+ported to hdxp by davy
