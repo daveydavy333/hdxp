@@ -4,3 +4,4 @@ devel-freetype
 devel-fontconfig
 devel-libpng
 devel-zlib
+devel-glib

@@ -12,7 +12,7 @@ rm -rf build
 meson setup build --prefix=/usr/local --libdir=lib --buildtype=release --wrap-mode=nofallback \
   -Dfreetype=enabled -Dfontconfig=enabled -Dpng=enabled -Dzlib=enabled \
   -Dxcb=disabled -Dxlib=disabled -Dxlib-xcb=disabled -Dquartz=disabled -Ddwrite=disabled \
-  -Dglib=disabled -Dspectre=disabled -Dlzo=disabled -Dsymbol-lookup=disabled -Dtests=disabled
+  -Dglib=enabled -Dspectre=disabled -Dlzo=disabled -Dsymbol-lookup=disabled -Dtests=disabled
 meson compile -C build
 if [ "$(id -u)" -eq 0 ]; then SU=""; else SU=doas; fi
 $SU /usr/local/bin/meson install -C build --no-rebuild
