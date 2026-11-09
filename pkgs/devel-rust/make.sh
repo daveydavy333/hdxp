@@ -8,7 +8,11 @@ mkdir -p "$SRC"
 cd "$SRC"
 [ -f "$TARBALL" ] || curl -fL -o "$TARBALL" "https://static.rust-lang.org/dist/$TARBALL"
 echo "$SHA256  $TARBALL" | sha256sum -c -
-[ -d "rust-$VER-$TRIPLE" ] || tar -xf "$TARBALL"
+# tar's built-in xz handling fails on this big archive ("corrupted data"), so decompress with xz and pipe into tar
+if [ ! -d "rust-$VER-$TRIPLE" ]; then
+  xz -t "$TARBALL" || { echo "xz test of $TARBALL failed"; exit 1; }
+  xz -dc "$TARBALL" | tar -x || { rm -rf "rust-$VER-$TRIPLE"; echo "extraction failed"; exit 1; }
+fi
 cd "rust-$VER-$TRIPLE"
 # install only the compiler, cargo and the target's std (no docs, clippy, rustfmt, analyzer)
 for c in rustc cargo "rust-std-$TRIPLE"; do
