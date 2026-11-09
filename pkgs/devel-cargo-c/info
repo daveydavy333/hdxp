@@ -1,0 +1,4 @@
+cargo-c, cargo subcommands (cbuild, cinstall, capi, ctest) for building C-ABI libraries from Rust crates. Installs the official precompiled static musl binaries. Needed to build librsvg.
+upstream: https://github.com/lu-zero/cargo-c
+license: MIT
+ported to hdxp by davy
