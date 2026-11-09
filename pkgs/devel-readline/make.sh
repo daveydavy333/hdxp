@@ -9,7 +9,8 @@ echo "$SHA256  $TARBALL" | sha256sum -c -
 [ -d "readline-$VER" ] || tar -xf "$TARBALL"
 cd "readline-$VER"
 ./configure --prefix=/usr/local --libdir=/usr/local/lib --disable-static --with-curses
-make -j"${HDX_JOBS:-$(nproc)}"
+# readline does not link its shared library against curses by itself, which leaves tgetent, tputs etc. undefined
+make -j"${HDX_JOBS:-$(nproc)}" SHLIB_LIBS=-lncurses
 # readline.pc lists ncurses as a private requirement; if ncurses has no .pc file pkg-config would reject readline
 if ! pkg-config --exists ncurses; then
   sed -i 's/^Requires.private: ncurses/Libs.private: -lncurses/' readline.pc
