@@ -1,0 +1,4 @@
+libwebp, the WebP image codec library. Built without the command-line tools.
+upstream: https://developers.google.com/speed/webp
+license: BSD-3-Clause
+ported to hdxp by davy
