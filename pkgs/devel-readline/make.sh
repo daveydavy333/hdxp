@@ -6,7 +6,9 @@ mkdir -p "$SRC"
 cd "$SRC"
 [ -f "$TARBALL" ] || curl -fL -o "$TARBALL" "https://archive.ubuntu.com/ubuntu/pool/main/r/readline/readline_$VER.orig.tar.gz"
 echo "$SHA256  $TARBALL" | sha256sum -c -
-[ -d "readline-$VER" ] || tar -xf "$TARBALL"
+# always start from a fresh tree: make would not relink a stale libreadline.so when only SHLIB_LIBS changes
+rm -rf "readline-$VER"
+tar -xf "$TARBALL"
 cd "readline-$VER"
 ./configure --prefix=/usr/local --libdir=/usr/local/lib --disable-static --with-curses
 # readline does not link its shared library against curses by itself, which leaves tgetent, tputs etc. undefined
