@@ -1,0 +1,4 @@
+libzip, a library for reading, creating and modifying zip archives. Built without bzip2, lzma, zstd or crypto backends and without the tools.
+upstream: https://libzip.org
+license: BSD-3-Clause
+ported to hdxp by davy
