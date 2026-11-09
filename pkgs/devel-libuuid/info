@@ -1,0 +1,4 @@
+libuuid from util-linux, for generating and parsing UUIDs. Builds only the library and uuid.h, none of the util-linux programs.
+upstream: https://github.com/util-linux/util-linux
+license: BSD-3-Clause
+ported to hdxp by davy
