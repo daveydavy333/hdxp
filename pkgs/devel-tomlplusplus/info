@@ -1,0 +1,4 @@
+toml++, a header-only TOML parser for C++.
+upstream: https://marzer.github.io/tomlplusplus
+license: MIT
+ported to hdxp by davy
