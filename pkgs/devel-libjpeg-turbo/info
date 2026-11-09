@@ -1,0 +1,4 @@
+libjpeg-turbo, a fast JPEG codec. Built without SIMD (no nasm) and without command-line tools.
+upstream: https://libjpeg-turbo.org
+license: BSD-3-Clause, IJG, Zlib
+ported to hdxp by davy
