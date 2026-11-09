@@ -1,0 +1,4 @@
+Rust toolchain (rustc, cargo and the musl standard library), installed from the official precompiled x86_64-unknown-linux-musl release. Needed to build librsvg.
+upstream: https://www.rust-lang.org
+license: MIT OR Apache-2.0
+ported to hdxp by davy
