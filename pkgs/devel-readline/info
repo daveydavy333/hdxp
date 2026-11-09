@@ -1,4 +1,4 @@
-GNU Readline 8.3, the command line editing library (also installs libhistory).
+GNU Readline 8.3, the command line editing library (also installs libhistory). Needed by hyprctl.
 upstream: https://tiswww.cwru.edu/php/chet/readline/rltop.html
 license: GPL-3.0-or-later
 ported to hdxp by davy
