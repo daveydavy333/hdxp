@@ -9,7 +9,7 @@ echo "$SHA256  $TARBALL" | sha256sum -c -
 [ -d "cmake-$VER" ] || tar xf "$TARBALL"
 cd "cmake-$VER"
 if [ "$(id -u)" -eq 0 ]; then SU=""; else SU=doas; fi
-JOBS="$(nproc 2>/dev/null || echo 1)"
+JOBS="${HDX_JOBS:-$(nproc 2>/dev/null || echo 1)}"
 ./bootstrap --prefix=/usr/local --parallel="$JOBS" -- -DCMAKE_USE_OPENSSL=OFF -DBUILD_TESTING=OFF -DBUILD_CursesDialog=OFF
 make -j"$JOBS"
 $SU make install
