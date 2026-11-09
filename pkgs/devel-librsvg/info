@@ -1,0 +1,4 @@
+librsvg, an SVG rendering library written in Rust, with the rsvg-convert tool. Built without GDK-Pixbuf, introspection, docs, Vala and AVIF.
+upstream: https://gitlab.gnome.org/GNOME/librsvg
+license: LGPL-2.1-or-later
+ported to hdxp by davy
