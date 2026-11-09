@@ -1,0 +1,4 @@
+libmagic and the file(1) command, file type identification. Built without compression library support.
+upstream: https://www.darwinsys.com/file
+license: BSD-2-Clause
+ported to hdxp by davy
