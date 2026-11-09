@@ -1,0 +1,4 @@
+libei and libeis, emulated input libraries (provides libeis-1.0 for Hyprland). Built without liboeffis, tests and docs.
+upstream: https://gitlab.freedesktop.org/libinput/libei
+license: MIT
+ported to hdxp by davy
