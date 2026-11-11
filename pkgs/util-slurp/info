@@ -1,0 +1,4 @@
+slurp, an interactive region selector for wlroots compositors such as sway. It prints a geometry, so it is usually paired with grim: grim -g "$(slurp)" shot.png
+upstream: https://github.com/emersion/slurp
+license: MIT
+ported to hdxp by davy
