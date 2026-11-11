@@ -1,0 +1,11 @@
+devel-meson
+devel-wayland
+devel-wayland-protocols
+devel-libxkbcommon
+devel-fontconfig
+devel-freetype
+devel-lua
+devel-libpng
+devel-libjpeg-turbo
+devel-libwebp
+devel-librsvg
