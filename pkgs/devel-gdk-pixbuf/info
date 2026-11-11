@@ -1,0 +1,4 @@
+gdk-pixbuf, the image loading library used by GTK and by tools like swaybg. Built with PNG and JPEG loaders compiled in, no TIFF, no introspection, no modules.
+upstream: https://gitlab.gnome.org/GNOME/gdk-pixbuf
+license: LGPL-2.1-or-later
+ported to hdxp by davy
