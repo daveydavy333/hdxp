@@ -1,0 +1,4 @@
+ImageMagick 7, the command line image converter and editor (magick, plus convert/identify/mogrify/composite/montage/compare links). Lean build: Q8, PNG, JPEG, WebP, freetype text, no X11, no modules, no TIFF/SVG/HEIC.
+upstream: https://github.com/ImageMagick/ImageMagick
+license: ImageMagick License (Apache 2.0 based)
+ported to hdxp by davy
