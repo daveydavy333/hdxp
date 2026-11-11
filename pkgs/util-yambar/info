@@ -1,0 +1,4 @@
+yambar, a lightweight status bar for Wayland compositors (sway, river, dwl and others). Wayland backend only, core modules built in (clock, cpu, mem, disk-io, network, battery, backlight, script, label, sway/i3, dwl, river, foreign-toplevel). A starter sway config is installed at /usr/local/share/yambar/config.example.yml.
+upstream: https://codeberg.org/dnkl/yambar
+license: MIT
+ported to hdxp by davy
