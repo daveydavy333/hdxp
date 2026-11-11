@@ -3,3 +3,4 @@ devel-wayland
 devel-wayland-protocols
 devel-cairo
 devel-scdoc
+devel-gdk-pixbuf

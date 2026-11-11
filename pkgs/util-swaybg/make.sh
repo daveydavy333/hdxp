@@ -9,8 +9,10 @@ echo "$SHA256  $TARBALL" | sha256sum -c -
 [ -d "swaybg-$VER" ] || tar -xf "$TARBALL"
 cd "swaybg-$VER"
 rm -rf build
+# gdk-pixbuf is enabled (not auto) so a missing devel-gdk-pixbuf fails the
+# build loudly instead of silently producing a PNG-only swaybg.
 meson setup build --prefix=/usr/local --libdir=lib --buildtype=release --wrap-mode=nofallback \
-  -Dgdk-pixbuf=disabled -Dman-pages=auto
+  -Dgdk-pixbuf=enabled -Dman-pages=auto
 meson compile -C build
 if [ "$(id -u)" -eq 0 ]; then SU=""; else SU=doas; fi
 $SU /usr/local/bin/meson install -C build --no-rebuild

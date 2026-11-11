@@ -1,4 +1,4 @@
-swaybg, the wallpaper tool for sway and other wlroots compositors. It draws a PNG image or a solid color behind the windows. Built without gdk-pixbuf, so PNG is the only image format.
+swaybg, the wallpaper tool for sway and other wlroots compositors. It draws an image or a solid color behind the windows. Built with gdk-pixbuf (PNG and JPEG); WebP is not supported, convert it with magick first.
 upstream: https://github.com/swaywm/swaybg
 license: MIT
 ported to hdxp by davy
