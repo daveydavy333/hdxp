@@ -1,0 +1,4 @@
+swayimg, an image viewer for Wayland compositors such as sway and Hyprland. Built with PNG, JPEG, WebP and SVG support and Lua configuration; no GIF, TIFF, HEIF/AVIF, JPEG XL, RAW or video.
+upstream: https://github.com/artemsen/swayimg
+license: MIT
+ported to hdxp by davy
