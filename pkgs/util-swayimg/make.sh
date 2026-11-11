@@ -9,13 +9,16 @@ cd "$SRC"
 echo "$SHA256  $TARBALL" | sha256sum -c -
 [ -d "swayimg-$VER" ] || tar -xf "$TARBALL"
 cd "swayimg-$VER"
-# swayimg takes its Lua from pkg-config; find what the lua port calls it.
+# swayimg takes its Lua from pkg-config; find what the lua port calls it
+# (devel-lua installs lua5.5.pc) and check the C++ header swayimg includes.
 PKGCONF=$(command -v pkgconf || command -v pkg-config)
 LUAPC=
-for n in lua lua5.4 lua-5.4 lua5.3 lua-5.3; do
+for n in lua lua5.5 lua-5.5 lua5.4 lua-5.4 lua5.3 lua-5.3; do
   if "$PKGCONF" --exists "$n"; then LUAPC=$n; break; fi
 done
 [ -n "$LUAPC" ] || { echo "no lua .pc file found; devel-lua needs to install one" >&2; exit 1; }
+LUAINC=$("$PKGCONF" --variable=includedir "$LUAPC")
+[ -f "$LUAINC/lua.hpp" ] || { echo "missing $LUAINC/lua.hpp; devel-lua should install it" >&2; exit 1; }
 echo "swayimg will use lua via $LUAPC"
 rm -rf build
 meson setup build --prefix=/usr/local --libdir=lib --buildtype=release --wrap-mode=nofallback \
