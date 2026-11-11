@@ -1,0 +1,4 @@
+zsh, the Z shell. Built with multibyte support and dynamic modules; no pcre, libcap or gdbm. Global rc files are read from /usr/local/etc/zsh. Added to /etc/shells on install.
+upstream: https://www.zsh.org
+license: MIT-like (zsh license)
+ported to hdxp by davy
