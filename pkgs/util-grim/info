@@ -1,0 +1,4 @@
+grim, a screenshot tool for wlroots compositors such as sway. Writes PNG, JPEG or PPM. The compositor must support the wlr-screencopy protocol.
+upstream: https://github.com/emersion/grim
+license: MIT
+ported to hdxp by davy
