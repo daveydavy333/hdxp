@@ -1,0 +1,4 @@
+libyaml, a C library for parsing and emitting YAML. Needed by yambar.
+upstream: https://github.com/yaml/libyaml
+license: MIT
+ported to hdxp by davy
