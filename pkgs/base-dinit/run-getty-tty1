@@ -1,0 +1,5 @@
+#!/bin/sh
+# login prompt on tty1
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+export PATH
+exec getty 38400 tty1 linux

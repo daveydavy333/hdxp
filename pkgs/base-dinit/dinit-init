@@ -1,0 +1,24 @@
+#!/bin/sh
+# dinit "stage 1": one-time system setup, then exec dinit as PID 1.
+# The /etc/rc.d/boot scripts (udev, fsck, fstab mounts, ...) run afterwards as the
+# boot-scripts service, so dinit starts with /proc, /dev and /run in place and the
+# root filesystem writable (its control socket lives in /run).
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+export PATH
+exec 2>&1
+
+# virtual filesystems (safe if the kernel or an initramfs already mounted them)
+mountpoint -q /proc    || mount -t proc proc /proc
+mountpoint -q /sys     || mount -t sysfs sysfs /sys
+mountpoint -q /dev     || mount -t devtmpfs devtmpfs /dev
+mkdir -p /dev/pts /dev/shm
+mountpoint -q /dev/pts || mount -t devpts devpts /dev/pts
+mountpoint -q /dev/shm || mount -t tmpfs tmpfs /dev/shm
+mountpoint -q /run     || mount -t tmpfs -o mode=0755,nosuid,nodev tmpfs /run
+mount -o remount,rw / 2>/dev/null
+
+[ -s /etc/hostname ] && hostname -F /etc/hostname
+ip link set lo up 2>/dev/null
+
+# kernel command line leftovers (e.g. --quiet) are passed through to dinit
+exec /usr/local/bin/dinit --log-file /var/log/dinit.log "$@"

@@ -1,0 +1,5 @@
+# dhcp on the first ethernet-style interface that has a link
+type = process
+command = /etc/dinit.d/scripts/net
+depends-on = boot-scripts
+restart-delay = 3

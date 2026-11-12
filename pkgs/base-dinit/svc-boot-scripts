@@ -1,0 +1,6 @@
+# runs /etc/rc.d/boot/*.sh from base-bootscripts (firmware, udev, fsck, fstab mounts,
+# audio permissions), the same scripts situation and runit run
+type = scripted
+command = /etc/dinit.d/scripts/boot-scripts
+options: starts-on-console
+start-timeout = 300

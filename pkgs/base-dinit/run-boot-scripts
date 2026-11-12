@@ -1,0 +1,9 @@
+#!/bin/sh
+# the same loop as runit's stage 1: every executable /etc/rc.d/boot/*.sh, in order
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+export PATH
+exec 2>&1
+for s in /etc/rc.d/boot/*.sh; do
+    [ -x "$s" ] && "$s"
+done
+exit 0

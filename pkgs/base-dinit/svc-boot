@@ -1,0 +1,6 @@
+# dinit starts this service by default. net and getty-tty1 are "waits-for" so that a
+# failing network or getty does not stop the rest of the boot.
+type = internal
+depends-on = boot-scripts
+waits-for = net
+waits-for = getty-tty1
