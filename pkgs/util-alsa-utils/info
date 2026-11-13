@@ -1,0 +1,5 @@
+alsa-utils: alsamixer and amixer (volume), aplay and arecord, speaker-test, alsactl (save and restore mixer state) and the MIDI tools. A udev rule restores the saved mixer state when a sound card appears.
+First time on a machine: alsactl init, then unmute and set a level (amixer sset Master unmute, amixer sset Master 70%), then alsactl store to keep it. Test with speaker-test -c 2 -t wav.
+upstream: https://github.com/alsa-project/alsa-utils
+license: GPL-2.0-or-later
+ported to hdxp by davy
