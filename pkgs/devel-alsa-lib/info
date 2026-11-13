@@ -1,0 +1,4 @@
+alsa-lib, the ALSA sound library (libasound) that alsa-utils and every other sound program talks to. Shared build, no python bindings.
+upstream: https://github.com/alsa-project/alsa-lib
+license: LGPL-2.1-or-later
+ported to hdxp by davy
