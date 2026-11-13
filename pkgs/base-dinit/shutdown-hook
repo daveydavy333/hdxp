@@ -1,0 +1,11 @@
+#!/bin/sh
+# dinit shutdown hook. dinit-shutdown runs it after every process has been killed;
+# $1 is poweroff, halt, reboot or soft. Exiting 0 tells dinit that the filesystems
+# are already taken care of (it then skips its own unmounting), which is what
+# runit's stage 3 does too: swap off, unmount, remount / read-only, sync.
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+swapoff -a 2>/dev/null
+umount -a -r 2>/dev/null
+mount -o remount,ro / 2>/dev/null
+sync
+exit 0

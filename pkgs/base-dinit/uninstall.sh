@@ -1,6 +1,6 @@
 # removes what base-dinit installed apart from the /usr/local/bin tools (hdx removes those)
 rm -f /sbin/dinit-init
-rm -rf /etc/dinit.d
+rm -rf /etc/dinit.d /etc/dinit
 rm -f /usr/local/sbin/dinit-shutdown /usr/local/sbin/dinit-poweroff /usr/local/sbin/dinit-reboot \
       /usr/local/sbin/dinit-halt /usr/local/sbin/dinit-soft-reboot
 rm -f /usr/local/share/man/man5/dinit-service.5 /usr/local/share/man/man8/dinit.8 \

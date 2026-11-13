@@ -22,6 +22,9 @@ $SU make install
 # situation: /sbin/init stays as it is, and runit's files are not touched either.
 $SU mkdir -p /etc/dinit.d/scripts
 $SU install -m 755 "$PORT/dinit-init" /sbin/dinit-init
+# runs at the end of every shutdown: swap off, unmount, remount / read-only
+$SU mkdir -p /etc/dinit
+$SU install -m 755 "$PORT/shutdown-hook" /etc/dinit/shutdown-hook
 for s in boot boot-scripts net getty-tty1; do
     $SU install -m 644 "$PORT/svc-$s" "/etc/dinit.d/$s"
 done

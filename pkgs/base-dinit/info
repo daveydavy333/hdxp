@@ -3,7 +3,7 @@ Boot it with init=/sbin/dinit-init on the kernel command line. dinit-init mounts
 remounts / read-write, sets the hostname and brings up lo, then execs dinit as PID 1. dinit starts the "boot"
 service, which runs /etc/rc.d/boot/*.sh from base-bootscripts (so udev, fsck and the fstab mounts run),
 and then the net (dhcp) and getty-tty1 services. Service descriptions live in /etc/dinit.d, their scripts
-in /etc/dinit.d/scripts. The shutdown commands are installed as dinit-poweroff, dinit-reboot, dinit-halt and
+in /etc/dinit.d/scripts. /etc/dinit/shutdown-hook swaps off, unmounts and remounts / read-only at shutdown. The shutdown commands are installed as dinit-poweroff, dinit-reboot, dinit-halt and
 dinit-shutdown (poweroff/reboot/halt call them when dinit is PID 1).
 Day to day: dinitctl list, dinitctl restart net, dinit-check -d /etc/dinit.d boot
 upstream: https://github.com/davmac314/dinit
