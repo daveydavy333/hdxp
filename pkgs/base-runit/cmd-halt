@@ -1,6 +1,7 @@
 #!/bin/sh
-# halt: under runit use runit-init, under situation hand over to situation's own command
+# halt: under runit use runit-init, under dinit use dinit-halt, under situation hand over to situation's own command
 case "$(cat /proc/1/comm 2>/dev/null)" in
     runit*) exec runit-init 0 ;;
+    dinit*) exec /usr/local/sbin/dinit-halt "$@" ;;
     *)      exec /bin/halt "$@" ;;
 esac

@@ -1,6 +1,7 @@
 #!/bin/sh
-# poweroff: under runit use runit-init, under situation hand over to situation's own command
+# poweroff: under runit use runit-init, under dinit use dinit-poweroff, under situation hand over to situation's own command
 case "$(cat /proc/1/comm 2>/dev/null)" in
     runit*) exec runit-init 0 ;;
+    dinit*) exec /usr/local/sbin/dinit-poweroff "$@" ;;
     *)      exec /bin/poweroff "$@" ;;
 esac
