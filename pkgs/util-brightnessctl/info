@@ -1,0 +1,5 @@
+brightnessctl, read and set screen backlight and keyboard led brightness through sysfs, no daemon. Examples: brightnessctl info, brightnessctl set 40%, brightnessctl set 5%-, brightnessctl -s set 10% (save the current level first).
+A udev rule gives the video group write access to the backlight; add your user to the video group or run it as root.
+upstream: https://github.com/Hummer12007/brightnessctl
+license: MIT
+ported to hdxp by davy
