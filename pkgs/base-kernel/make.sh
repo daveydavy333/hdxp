@@ -72,6 +72,15 @@ TP_OPTS="COMMON_CLK PINCTRL I2C I2C_DESIGNWARE_CORE I2C_DESIGNWARE_PLATFORM PINC
 for o in $TP_OPTS; do
     scripts/config --enable "$o"
 done
+# hda audio codecs (laptop speakers/headphones: realtek on the hp elitebook, plus conexant and idt/sigmatel as insurance,
+# and the intel hdmi/dp audio codec). built in, no initramfs. since linux 6.17 the codec drivers are separate options and
+# the defconfig has none of them: snd_hda_intel then finds the codec but nothing binds, and it ends with
+# "Cannot probe codecs, giving up" and no sound card at all. the *_REALTEK and *_HDMI options are menu switches that
+# turn on every driver below them (the individual ones are hidden unless EXPERT is set).
+SND_OPTS="SND_HDA_GENERIC SND_HDA_CODEC_REALTEK SND_HDA_CODEC_ALC269 SND_HDA_CODEC_ALC662 SND_HDA_CODEC_ALC882 SND_HDA_CODEC_HDMI SND_HDA_CODEC_HDMI_GENERIC SND_HDA_CODEC_HDMI_INTEL SND_HDA_CODEC_CONEXANT SND_HDA_CODEC_SIGMATEL"
+for o in $SND_OPTS; do
+    scripts/config --enable "$o"
+done
 if [ -n "$FW" ]; then
     scripts/config --set-str EXTRA_FIRMWARE "${FW# }"
     scripts/config --set-str EXTRA_FIRMWARE_DIR /lib/firmware
@@ -80,6 +89,9 @@ scripts/config --set-str UEVENT_HELPER_PATH ""
 make olddefconfig
 for o in $TP_OPTS; do
     grep -q "^CONFIG_$o=y" .config || echo "note: CONFIG_$o did not stay enabled (touchpad support may be incomplete)"
+done
+for o in $SND_OPTS; do
+    grep -q "^CONFIG_$o=y" .config || echo "note: CONFIG_$o did not stay enabled (sound may not work)"
 done
 if [ "$AMD_OK" -eq 1 ] && ! grep -q '^CONFIG_DRM_AMDGPU=y' .config; then
     echo "error: DRM_AMDGPU did not stay enabled in the config (a dependency is missing)"
