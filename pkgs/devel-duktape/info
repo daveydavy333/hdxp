@@ -1,0 +1,4 @@
+Duktape, a small embeddable Javascript engine (shared library; used by polkit for its rules)
+upstream: https://duktape.org (https://github.com/svaarala/duktape)
+license: MIT
+ported to hdxp by davy
