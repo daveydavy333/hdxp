@@ -81,6 +81,12 @@ SND_OPTS="SND_HDA_GENERIC SND_HDA_CODEC_REALTEK SND_HDA_CODEC_ALC269 SND_HDA_COD
 for o in $SND_OPTS; do
     scripts/config --enable "$o"
 done
+# iwd (wifi daemon) needs kernel crypto through AF_ALG, keyrings and x509/pkcs parsers (the list comes from iwd's own startup check),
+# built in since there is no initramfs. CRYPTO_AES_NI_INTEL is only an optional speedup.
+IWD_OPTS="KEYS CRYPTO_USER_API CRYPTO_USER_API_HASH CRYPTO_USER_API_SKCIPHER CRYPTO_AES CRYPTO_CBC CRYPTO_CMAC CRYPTO_DES CRYPTO_ECB CRYPTO_HMAC CRYPTO_MD5 CRYPTO_SHA1 CRYPTO_SHA256 CRYPTO_SHA512 KEY_DH_OPERATIONS ASYMMETRIC_KEY_TYPE ASYMMETRIC_PUBLIC_KEY_SUBTYPE X509_CERTIFICATE_PARSER PKCS7_MESSAGE_PARSER PKCS8_PRIVATE_KEY_PARSER"
+for o in $IWD_OPTS CRYPTO_AES_NI_INTEL; do
+    scripts/config --enable "$o"
+done
 if [ -n "$FW" ]; then
     scripts/config --set-str EXTRA_FIRMWARE "${FW# }"
     scripts/config --set-str EXTRA_FIRMWARE_DIR /lib/firmware
@@ -92,6 +98,9 @@ for o in $TP_OPTS; do
 done
 for o in $SND_OPTS; do
     grep -q "^CONFIG_$o=y" .config || echo "note: CONFIG_$o did not stay enabled (sound may not work)"
+done
+for o in $IWD_OPTS; do
+    grep -q "^CONFIG_$o=y" .config || echo "note: CONFIG_$o did not stay enabled (iwd may not start)"
 done
 if [ "$AMD_OK" -eq 1 ] && ! grep -q '^CONFIG_DRM_AMDGPU=y' .config; then
     echo "error: DRM_AMDGPU did not stay enabled in the config (a dependency is missing)"
