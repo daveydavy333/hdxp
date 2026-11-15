@@ -1,0 +1,4 @@
+iwd, Intel's wireless daemon, with the iwctl client and the iwmon monitor (replaces wpa_supplicant for wifi; needs D-Bus and a kernel with the iwd crypto options)
+upstream: https://iwd.wiki.kernel.org
+license: LGPL-2.1-or-later
+ported to hdxp by davy
