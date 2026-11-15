@@ -1,0 +1,4 @@
+Polkit authorization framework: polkitd, pkexec, pkcheck, pkaction and libpolkit-gobject/agent (shadow authentication, no PAM, no logind)
+upstream: https://github.com/polkit-org/polkit
+license: LGPL-2.0-or-later
+ported to hdxp by davy
