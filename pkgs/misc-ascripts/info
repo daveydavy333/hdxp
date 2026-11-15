@@ -1,0 +1,2 @@
+Audio boot scripts: restores the saved ALSA mixer state at boot and creates /run/lock for alsactl
+ported to hdxp by davy
