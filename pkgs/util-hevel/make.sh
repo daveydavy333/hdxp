@@ -11,8 +11,6 @@ COMMIT="7ef61a5c0d4012417443734919ac723635cd5464"
 
 if [ "$(id -u)" -eq 0 ]; then SU=; else SU=doas; fi
 
-[ "$COMMIT" != FILLME ] || { echo "$NAME: COMMIT is not pinned yet (run pin.sh)" >&2; exit 1; }
-
 [ -d "$SRC/.git" ] || git clone -q "$URL" "$SRC"
 cd "$SRC"
 git fetch -q origin "$COMMIT" 2>/dev/null || git fetch -q origin
