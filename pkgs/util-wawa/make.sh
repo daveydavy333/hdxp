@@ -21,7 +21,8 @@ git checkout -q -f "$COMMIT"
 export PKG_CONFIG_PATH="$PREFIX/lib/pkgconfig:$PREFIX/share/pkgconfig${PKG_CONFIG_PATH:+:$PKG_CONFIG_PATH}"
 
 make clean >/dev/null 2>&1 || true
-make CC="${CC:-cc}" -j "$JOBS"
+# gcc 15 defaults to C23, where wawa's `noop() {}` no longer converts to the listener callbacks
+make CC="${CC:-cc} -std=gnu17" -j "$JOBS"
 
 $SU install -D -m 755 wawa "$PREFIX/bin/wawa"
 echo "$NAME installed"
