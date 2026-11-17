@@ -1,0 +1,4 @@
+neuswc: a small library for making wayland compositors, a maintained fork of swc, with the setuid swc-launch helper
+upstream: https://git.sr.ht/~shrub900/neuswc
+license: MIT
+ported to hdxp by davy
