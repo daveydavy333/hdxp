@@ -1,0 +1,4 @@
+hst: a st-wl terminal fork for neuswc compositors with neuwld font rendering; installs as st-wl
+upstream: https://git.sr.ht/~dlm/hst
+license: MIT
+ported to hdxp by davy
