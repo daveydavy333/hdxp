@@ -1,0 +1,14 @@
+#!/bin/sh
+# openrc-stage1: init= target for OpenRC. Mounts the API filesystems, then becomes openrc-init (PID 1).
+export PATH=/usr/local/sbin:/usr/local/bin:/sbin:/usr/sbin:/bin:/usr/bin
+[ -e /proc/self ] || mount -t proc proc /proc
+mounted() { grep -q " $1 " /proc/mounts 2>/dev/null; }
+mounted /sys || mount -t sysfs sysfs /sys
+mounted /dev || mount -t devtmpfs devtmpfs /dev
+mkdir -p /dev/pts /dev/shm
+mounted /dev/pts || mount -t devpts devpts /dev/pts
+mounted /dev/shm || mount -t tmpfs tmpfs /dev/shm
+mounted /run || mount -t tmpfs -o mode=0755,nosuid,nodev tmpfs /run
+mkdir -p /run/openrc /run/lock
+mount -o remount,rw / 2>/dev/null
+exec /usr/local/sbin/openrc-init

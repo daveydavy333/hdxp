@@ -1,0 +1,12 @@
+#!/usr/local/sbin/openrc-run
+description="DHCP on the first physical interface that has a link (wifi via iwd or ethernet)"
+supervisor=supervise-daemon
+command=/usr/local/libexec/hdx/openrc-net
+output_log=/var/log/net.log
+error_log=/var/log/net.log
+respawn_delay=3
+
+depend() {
+	need hdx-boot
+	use iwd
+}

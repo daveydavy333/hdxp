@@ -1,0 +1,12 @@
+#!/usr/local/sbin/openrc-run
+description="HDXI shutdown helper: swapoff and sync before mount-ro"
+
+depend() {
+	before mount-ro
+}
+
+start() {
+	swapoff -a 2>/dev/null
+	sync
+	return 0
+}

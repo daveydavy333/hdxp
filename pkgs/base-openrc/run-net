@@ -1,0 +1,21 @@
+#!/bin/sh
+# openrc-net: wait for a physical type-1 interface with carrier, then run udhcpc in the foreground.
+export PATH=/usr/local/sbin:/usr/local/bin:/sbin:/usr/sbin:/bin:/usr/bin
+find_if() {
+	for d in /sys/class/net/*; do
+		n=${d##*/}
+		[ "$n" = lo ] && continue
+		[ -e "$d/device" ] || continue
+		[ "$(cat "$d/type" 2>/dev/null)" = 1 ] || continue
+		ip link set "$n" up 2>/dev/null || ifconfig "$n" up 2>/dev/null
+		if [ "$(cat "$d/carrier" 2>/dev/null)" = 1 ]; then echo "$n"; return 0; fi
+	done
+	return 1
+}
+echo "net: waiting for a link..."
+while :; do
+	i=$(find_if) && break
+	sleep 2
+done
+echo "net: dhcp on $i"
+exec udhcpc -f -i "$i"

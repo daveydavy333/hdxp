@@ -1,0 +1,18 @@
+#!/usr/local/sbin/openrc-run
+export PATH=/usr/local/sbin:/usr/local/bin:/sbin:/usr/sbin:/bin:/usr/bin
+description="D-Bus system message bus"
+command="$(command -v dbus-daemon)"
+command_args="--system --nofork --nopidfile"
+command_background=true
+pidfile=/run/dbus-daemon.pid
+
+depend() {
+	need hdx-boot
+}
+
+start_pre() {
+	mkdir -p /run/dbus
+	if [ ! -s /etc/machine-id ] && command -v dbus-uuidgen >/dev/null 2>&1; then
+		dbus-uuidgen --ensure=/etc/machine-id
+	fi
+}

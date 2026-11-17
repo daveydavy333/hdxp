@@ -1,0 +1,15 @@
+#!/usr/local/sbin/openrc-run
+description="Run the HDXI boot scripts in /etc/rc.d/boot (firmware, fsck, mount, udev, alsa, dbus...)"
+
+start() {
+	export PATH=/usr/local/sbin:/usr/local/bin:/sbin:/usr/sbin:/bin:/usr/bin
+	mkdir -p /var/log
+	ip link set lo up 2>/dev/null || ifconfig lo up 2>/dev/null
+	for f in /etc/rc.d/boot/*.sh; do
+		[ -f "$f" ] || continue
+		ebegin "boot script ${f##*/}"
+		sh "$f" >>/var/log/hdx-boot.log 2>&1
+		eend $?
+	done
+	return 0
+}

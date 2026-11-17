@@ -1,0 +1,15 @@
+#!/usr/local/sbin/openrc-run
+export PATH=/usr/local/sbin:/usr/local/bin:/sbin:/usr/sbin:/bin:/usr/bin
+description="iNet wireless daemon (iwd)"
+command=
+for p in /usr/local/libexec/iwd /usr/libexec/iwd "$(command -v iwd 2>/dev/null)"; do
+	if [ -n "$p" ] && [ -x "$p" ]; then command=$p; break; fi
+done
+command_background=true
+pidfile=/run/iwd.pid
+output_log=/var/log/iwd.log
+error_log=/var/log/iwd.log
+
+depend() {
+	need dbus
+}

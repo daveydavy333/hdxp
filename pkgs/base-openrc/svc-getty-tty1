@@ -1,0 +1,18 @@
+#!/usr/local/sbin/openrc-run
+export PATH=/usr/local/sbin:/usr/local/bin:/sbin:/usr/sbin:/bin:/usr/bin
+description="login prompt on tty1"
+supervisor=supervise-daemon
+respawn_delay=1
+command=
+# reuse the getty run script from another init if one exists, else busybox getty
+for s in /etc/dinit.d/scripts/*getty* /etc/service/getty-tty1/run /etc/runit/sv/getty-tty1/run; do
+	if [ -x "$s" ]; then command=$s; break; fi
+done
+if [ -z "$command" ]; then
+	command="$(command -v busybox)"
+	command_args="getty 38400 tty1 linux"
+fi
+
+depend() {
+	need hdx-boot
+}
