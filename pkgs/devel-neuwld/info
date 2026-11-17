@@ -1,0 +1,4 @@
+neuwld: a slightly less primitive drawing library for wayland, a maintained fork of wld
+upstream: https://git.sr.ht/~shrub900/neuwld
+license: MIT
+ported to hdxp by davy
