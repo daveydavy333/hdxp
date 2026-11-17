@@ -1,0 +1,8 @@
+devel-fontconfig
+devel-freetype
+devel-libdrm
+devel-pixman
+devel-wayland
+devel-meson
+devel-samurai
+devel-pkgconf
