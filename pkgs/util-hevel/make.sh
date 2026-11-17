@@ -22,12 +22,15 @@ git checkout -q -f "$COMMIT"
 export PKG_CONFIG_PATH="$PREFIX/lib/pkgconfig:$PREFIX/share/pkgconfig${PKG_CONFIG_PATH:+:$PKG_CONFIG_PATH}"
 
 # config.h: your own /etc/hdxi/hevel-config.h wins, else keep an existing one,
-# else take the default and point its terminal at foot (st-wl is not ported)
+# else take the default and adapt it to foot
 if [ -f /etc/hdxi/hevel-config.h ]; then
     cp /etc/hdxi/hevel-config.h config.h
 elif [ ! -f config.h ]; then
     cp config.def.h config.h
-    sed -i 's/st-wl/foot/g' config.h
+    # foot takes the app-id with -a (its -w is window-size-pixels), and hevel
+    # waits for a window with exactly that app-id, so pass -a and list it
+    sed -i 's/term_flag = "-w"/term_flag = "-a"/' config.h
+    sed -i 's/terminal_app_ids\[\] = {"foot", /terminal_app_ids[] = {"foot", "foot-256color", /' config.h
 fi
 
 make clean >/dev/null 2>&1 || true

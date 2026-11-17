@@ -1,8 +1,12 @@
 #!/bin/sh
 # start hevel from a text console
+# HEVEL_TIMEOUT=60 hevel-start  ends hevel after 60 seconds (safety net while testing)
 : "${XDG_RUNTIME_DIR:=/tmp/xdg}"
 export XDG_RUNTIME_DIR
 mkdir -p "$XDG_RUNTIME_DIR"
 chmod 700 "$XDG_RUNTIME_DIR"
 export WLD_DRM_DUMB=1
+if [ -n "${HEVEL_TIMEOUT:-}" ]; then
+    ( sleep "$HEVEL_TIMEOUT"; pkill hevel ) >/dev/null 2>&1 &
+fi
 exec swc-launch hevel "$@"
