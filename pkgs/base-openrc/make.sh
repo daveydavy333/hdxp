@@ -1,7 +1,7 @@
 #!/bin/sh
-# sys-openrc: OpenRC 0.64.1 as an extra init (init=/sbin/openrc-stage1). Does not touch /sbin/init.
+# OpenRC 0.64.1 as an extra init (init=/sbin/openrc-stage1). Does not touch /sbin/init.
 set -eu
-NAME=sys-openrc
+NAME=base-openrc
 VER=0.64.1
 SHA=56d6d24c7fd2ca15d1abd1fb82ce5430629a71acb2c3fa12760300243dbd0baa
 URL="https://github.com/OpenRC/openrc/archive/refs/tags/$VER.tar.gz"
@@ -70,5 +70,5 @@ add boot hdx-boot
 add default $DEF net getty-tty1
 add shutdown hdx-shutdown mount-ro
 sync
-echo "sys-openrc $VER installed. Boot it with init=/sbin/openrc-stage1 on the kernel command line."
+echo "base-openrc $VER installed. Boot it with init=/sbin/openrc-stage1 on the kernel command line."
 echo "default runlevel: $DEF net getty-tty1"
