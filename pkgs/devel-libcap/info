@@ -1,0 +1,4 @@
+POSIX 1003.1e capabilities library and tools (getcap, setcap, capsh)
+upstream: https://sites.google.com/site/fullycapable/
+license: BSD-3-Clause OR GPL-2.0-only
+ported to hdxp by davy
