@@ -1,0 +1,4 @@
+OpenRC 0.64.1 dependency-based init system, side by side with situation/runit/dinit (init=/sbin/openrc-stage1)
+upstream: https://github.com/OpenRC/openrc
+license: BSD-2-Clause
+ported to hdxp by davy
