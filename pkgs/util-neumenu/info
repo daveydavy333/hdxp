@@ -1,0 +1,4 @@
+neumenu: an efficient dynamic menu for neuswc compositors, a fork of dmenu for wayland
+upstream: https://git.sr.ht/~uint/neumenu
+license: MIT
+ported to hdxp by davy
