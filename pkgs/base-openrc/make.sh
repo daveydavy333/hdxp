@@ -1,5 +1,5 @@
 #!/bin/sh
-# OpenRC 0.64.1 as an extra init (init=/sbin/openrc-stage1). Does not touch /sbin/init.
+# base-openrc: OpenRC 0.64.1 as an extra init (init=/sbin/openrc-stage1). Does not touch /sbin/init.
 set -eu
 NAME=base-openrc
 VER=0.64.1

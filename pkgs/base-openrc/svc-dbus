@@ -1,5 +1,4 @@
 #!/usr/local/sbin/openrc-run
-export PATH=/usr/local/sbin:/usr/local/bin:/sbin:/usr/sbin:/bin:/usr/bin
 description="D-Bus system message bus"
 command="$(command -v dbus-daemon)"
 command_args="--system --nofork --nopidfile"

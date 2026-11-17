@@ -2,8 +2,8 @@
 description="Run the HDXI boot scripts in /etc/rc.d/boot (firmware, fsck, mount, udev, alsa, dbus...)"
 
 start() {
-	export PATH=/usr/local/sbin:/usr/local/bin:/sbin:/usr/sbin:/bin:/usr/bin
 	mkdir -p /var/log
+	if [ -s /etc/hostname ]; then hostname "$(cat /etc/hostname)"; else hostname hdxi; fi
 	ip link set lo up 2>/dev/null || ifconfig lo up 2>/dev/null
 	for f in /etc/rc.d/boot/*.sh; do
 		[ -f "$f" ] || continue

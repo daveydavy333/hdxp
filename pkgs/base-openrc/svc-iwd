@@ -1,5 +1,4 @@
 #!/usr/local/sbin/openrc-run
-export PATH=/usr/local/sbin:/usr/local/bin:/sbin:/usr/sbin:/bin:/usr/bin
 description="iNet wireless daemon (iwd)"
 command=
 for p in /usr/local/libexec/iwd /usr/libexec/iwd "$(command -v iwd 2>/dev/null)"; do

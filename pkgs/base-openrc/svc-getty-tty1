@@ -1,8 +1,8 @@
 #!/usr/local/sbin/openrc-run
-export PATH=/usr/local/sbin:/usr/local/bin:/sbin:/usr/sbin:/bin:/usr/bin
 description="login prompt on tty1"
 supervisor=supervise-daemon
 respawn_delay=1
+respawn_period=60
 command=
 # reuse the getty run script from another init if one exists, else busybox getty
 for s in /etc/dinit.d/scripts/*getty* /etc/service/getty-tty1/run /etc/runit/sv/getty-tty1/run; do

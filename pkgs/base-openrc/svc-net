@@ -5,6 +5,7 @@ command=/usr/local/libexec/hdx/openrc-net
 output_log=/var/log/net.log
 error_log=/var/log/net.log
 respawn_delay=3
+respawn_period=60
 
 depend() {
 	need hdx-boot
