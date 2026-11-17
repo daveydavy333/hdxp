@@ -1,0 +1,12 @@
+devel-neuwld
+devel-wayland
+devel-wayland-protocols
+devel-libdrm
+devel-libinput
+devel-libxkbcommon
+devel-xkeyboard-config
+devel-pixman
+sys-eudev
+devel-meson
+devel-samurai
+devel-pkgconf
