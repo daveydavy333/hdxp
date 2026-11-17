@@ -1,0 +1,4 @@
+mojito: a featherweight lemonbar-compatible status bar for layer-shell compositors such as neuswc; includes hdxi-bar, a ready-made clock and battery feeder
+upstream: https://git.sr.ht/~dlm/mojito
+license: 0BSD
+ported to hdxp by davy
