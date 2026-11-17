@@ -1,0 +1,4 @@
+hevel: a scrollable, floating wayland window manager driven by mouse chords, built on neuswc
+upstream: https://git.sr.ht/~dlm/hevel
+license: ISC
+ported to hdxp by davy
