@@ -1,0 +1,4 @@
+wawa: a simple wallpaper setter for layer-shell compositors such as neuswc, with fill, fit, stretch, tile and spread modes
+upstream: https://codeberg.org/sewn/wawa
+license: ISC
+ported to hdxp by davy
