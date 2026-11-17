@@ -25,7 +25,7 @@ meson setup build --prefix=/usr/local --sysconfdir=/etc --libdir=lib \
 	-Dpam=false -Dselinux=disabled -Daudit=disabled -Dnewnet=false \
 	-Dsysvinit=false -Dshell=/bin/sh -Duucp_group=root -Dpkgconfig=false
 meson compile -C build
-$SU meson install -C build
+$SU env DESTDIR= meson install -C build
 
 # openrc-init resets PATH to /sbin:/usr/sbin:/bin:/usr/bin, so link the tools into /sbin
 for b in openrc openrc-init openrc-run openrc-shutdown rc rc-service rc-update rc-status rc-sstat rc-depend \
