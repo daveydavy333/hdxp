@@ -1,0 +1,8 @@
+#!/bin/sh
+# start hevel from a text console
+: "${XDG_RUNTIME_DIR:=/tmp/xdg}"
+export XDG_RUNTIME_DIR
+mkdir -p "$XDG_RUNTIME_DIR"
+chmod 700 "$XDG_RUNTIME_DIR"
+export WLD_DRM_DUMB=1
+exec swc-launch hevel "$@"
