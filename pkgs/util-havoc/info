@@ -1,0 +1,4 @@
+havoc 0.7.0: minimal Wayland terminal emulator (bundled libtsm)
+upstream: https://github.com/ii8/havoc
+license: MIT
+ported to hdxp by davy
