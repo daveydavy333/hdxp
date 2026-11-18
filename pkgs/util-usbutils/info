@@ -1,4 +1,4 @@
-usbutils 020: lsusb, usbhid-dump
+usbutils 020: lsusb, usbhid-dump (names come from udev hwdb: run udevadm hwdb --update)
 upstream: https://github.com/gregkh/usbutils
 license: GPL-2.0-only
 ported to hdxp by davy
