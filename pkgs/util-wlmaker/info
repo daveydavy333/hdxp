@@ -1,0 +1,4 @@
+wlmaker 0.8.1: Wayland compositor inspired by Window Maker / NeXTSTEP (libbase + inih bundled at pinned commits, no xwayland)
+upstream: https://github.com/phkaeser/wlmaker
+license: Apache-2.0
+ported to hdxp by davy
