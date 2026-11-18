@@ -1,0 +1,4 @@
+fastfetch 2.71.0: fast neofetch-like system information tool (lean build: no image logos, lua, vulkan, X11 modules)
+upstream: https://github.com/fastfetch-cli/fastfetch
+license: MIT
+ported to hdxp by davy
