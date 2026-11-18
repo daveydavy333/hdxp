@@ -1,0 +1,4 @@
+acpid 2.0.34: ACPI event daemon and acpi_listen (hand-built, no autotools; needs a service script and /etc/acpi/events rules)
+upstream: https://github.com/tedfelix/acpid2
+license: GPL-2.0-or-later
+ported to hdxp by davy
