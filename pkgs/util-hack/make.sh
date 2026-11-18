@@ -45,11 +45,11 @@ mkdir hack-build
 tar xzf "$TAR" -C hack-build --strip-components=1
 cd hack-build
 
-# the Makefile hardcodes clang, libdrm_intel/libdrm_nouveau and libcrypto (not in hdxp);
+# the Makefile hardcodes clang and libdrm_intel/libdrm_nouveau (not in hdxp); libcrypto stays (acme/sha1.c);
 # override LIBS and build only the editor, not acme/mail/Mail
 LIBS="-Wl,--start-group -lplumb -l9pclient -lmux -lcomplete -lbio -lframe -lthread -l9 -Wl,--end-group \
  -lwld -ldrm $(pkg-config --libs wayland-client xkbcommon pixman-1 fontconfig freetype2) \
- -lpthread -lm -lrt"
+ -lcrypto -lpthread -lm -lrt"
 make -j "$JOBS" hack CC="${CC:-cc} -std=gnu17" PLAN9="$PLAN9" LIBS="$LIBS"
 
 $SU mkdir -p /usr/local/bin
