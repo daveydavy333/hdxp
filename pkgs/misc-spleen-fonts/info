@@ -1,0 +1,4 @@
+Spleen 2.3.0: monospaced bitmap font in 5x8 to 32x64 (pcf and bdf)
+upstream: https://github.com/fcambus/spleen
+license: BSD-2-Clause
+ported to hdxp by davy
