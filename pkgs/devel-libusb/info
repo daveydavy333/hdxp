@@ -1,0 +1,4 @@
+libusb 1.0.30: userspace USB access library (netlink hotplug, no udev)
+upstream: https://github.com/libusb/libusb
+license: LGPL-2.1-or-later
+ported to hdxp by davy
