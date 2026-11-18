@@ -1,0 +1,17 @@
+devel-wlroots
+devel-wayland
+devel-wayland-protocols
+devel-libxkbcommon
+devel-libdrm
+devel-libinput
+devel-libxml2
+devel-glib
+devel-cairo
+devel-pango
+devel-pixman
+devel-libpng
+devel-librsvg
+devel-meson
+devel-samurai
+devel-pkgconf
+devel-scdoc
