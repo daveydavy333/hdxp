@@ -1,0 +1,4 @@
+strace 7.3: system call tracer (no mpers, libunwind or libdw)
+upstream: https://github.com/strace/strace
+license: LGPL-2.1-or-later
+ported to hdxp by davy
