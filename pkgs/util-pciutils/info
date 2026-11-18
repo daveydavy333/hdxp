@@ -1,0 +1,4 @@
+pciutils 3.15.0: lspci and setpci (static lib, no zlib/dns/kmod); ships its own pci.ids in /usr/local/share
+upstream: https://github.com/pciutils/pciutils
+license: GPL-2.0-or-later
+ported to hdxp by davy
