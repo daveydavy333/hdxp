@@ -1,0 +1,11 @@
+devel-wlroots
+devel-wayland
+devel-wayland-protocols
+devel-libxkbcommon
+devel-libinput
+devel-cairo
+devel-ncurses
+devel-libxdg-basedir
+devel-cmake
+devel-samurai
+devel-pkgconf
