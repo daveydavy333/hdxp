@@ -45,6 +45,9 @@ mkdir hack-build
 tar xzf "$TAR" -C hack-build --strip-components=1
 cd hack-build
 
+# upstream hardcodes the Arch font path; hdxp keeps fonts under /usr/local/share/fonts
+grep -rIl "/usr/share/fonts/TTF/" . 2>/dev/null | xargs -r sed -i "s|/usr/share/fonts/TTF/|/usr/local/share/fonts/gomono/|g"
+
 # the Makefile hardcodes clang and libdrm_intel/libdrm_nouveau (not in hdxp); libcrypto stays (acme/sha1.c);
 # override LIBS and build only the editor, not acme/mail/Mail
 LIBS="-Wl,--start-group -lplumb -l9pclient -lmux -lcomplete -lbio -lframe -lthread -l9 -Wl,--end-group \
