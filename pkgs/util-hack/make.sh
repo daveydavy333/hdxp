@@ -50,7 +50,7 @@ cd hack-build
 LIBS="-Wl,--start-group -lplumb -l9pclient -lmux -lcomplete -lbio -lframe -lthread -l9 -Wl,--end-group \
  -lwld -ldrm $(pkg-config --libs wayland-client xkbcommon pixman-1 fontconfig freetype2) \
  -lpthread -lm -lrt"
-make -j "$JOBS" hack CC="${CC:-cc}" PLAN9="$PLAN9" LIBS="$LIBS"
+make -j "$JOBS" hack CC="${CC:-cc} -std=gnu17" PLAN9="$PLAN9" LIBS="$LIBS"
 
 $SU mkdir -p /usr/local/bin
 $SU install -m755 hack /usr/local/bin/hack
