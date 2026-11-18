@@ -58,6 +58,8 @@ tar xzf "../inih-$INIH.tar.gz" -C submodules/inih --strip-components=1
 # this wlroots has no x11 backend: drop the header and the x11 output checks
 sed -i '/x11\.h/d' src/backend/output.c
 sed -i 's/wlr_output_is_x11(wlr_output_ptr)/0/g' src/backend/output.c
+# launchers/menu hardcode /usr/bin/: hdxp installs to /usr/local/bin, use PATH lookup instead
+sed -i "s|/usr/bin/||g" etc/State.plist etc/RootMenu.plist etc/Config.plist
 if grep -q 'wlr_output_is_x11\|x11\.h' src/backend/output.c; then
     echo "util-wlmaker: x11 patch did not apply" >&2; exit 1
 fi
