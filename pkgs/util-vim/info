@@ -1,0 +1,4 @@
+vim 9.2.1364: vi improved, terminal only (normal features, no gui, no x11, no nls)
+upstream: https://github.com/vim/vim
+license: Vim
+ported to hdxp by davy
