@@ -1,0 +1,4 @@
+labwc 0.20.3: stacking Wayland compositor inspired by openbox, built on wlroots (no xwayland, no nls, no window icons)
+upstream: https://github.com/labwc/labwc
+license: GPL-2.0-only
+ported to hdxp by davy
