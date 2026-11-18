@@ -1,0 +1,15 @@
+#!/bin/sh
+# a small mojito bar: HDXI on the left, clock in the middle, battery and wifi address on the right
+# extra mojito options can be given as arguments, e.g. hdxi-bar -b for a bottom bar
+battery() {
+    for b in /sys/class/power_supply/BAT*; do
+        [ -r "$b/capacity" ] && printf '%s%%%% ' "$(cat "$b/capacity")"
+    done
+}
+address() {
+    ip -4 -o addr show scope global 2>/dev/null | awk '{print $4; exit}'
+}
+while :; do
+    printf '%%{l} HDXI %%{c}%s%%{r}%s%s \n' "$(date '+%a %d %b  %H:%M')" "$(battery)" "$(address)"
+    sleep 5
+done | mojito -f "DejaVu Sans Mono-10" -B '#101830' -F '#c8d4ff' "$@"
