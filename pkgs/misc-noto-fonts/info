@@ -1,0 +1,4 @@
+Noto Sans, Serif and Sans Mono (Latin/Greek/Cyrillic, hinted TTF, regular/bold/italic where available); no CJK, no emoji
+upstream: https://github.com/notofonts
+license: OFL-1.1
+ported to hdxp by davy
