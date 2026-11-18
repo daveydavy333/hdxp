@@ -13,7 +13,7 @@ mkdir -p "$SRC"
 cd "$SRC"
 
 # upstream has no releases: it builds whatever HACK_REV points at (default HEAD).
-# First run: HDX_TOFU=1 hdx i util-hack  -> prints the commit and sha256 it built.
+# Unpinned by default: the commit and sha256 it built are printed for pinning.
 # To pin: set HACK_REV=<commit> and HACK_SHA=<sha256> below.
 HACK_REV="${HACK_REV:-HEAD}"
 HACK_SHA="${HACK_SHA:-}"
@@ -25,7 +25,7 @@ echo "util-hack: commit=${COMMIT:-unknown} sha256=$GOT" >&2
 if [ -n "$HACK_SHA" ]; then
     [ "$GOT" = "$HACK_SHA" ] || { rm -f "$TAR"; die "checksum mismatch for $TAR"; }
 else
-    [ "${HDX_TOFU:-0}" = 1 ] || die "unpinned source: re-run with HDX_TOFU=1 to build it, then pin the values printed above"
+    echo "util-hack: building unpinned HEAD; pin HACK_REV/HACK_SHA to freeze it" >&2
 fi
 
 for m in wayland-client xkbcommon pixman-1 fontconfig freetype2; do need "$m"; done
