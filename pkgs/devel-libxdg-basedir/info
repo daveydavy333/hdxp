@@ -1,4 +1,4 @@
-XDG Base Directory specification library (1.2.3), built straight from basedir.c, no autotools
+XDG Base Directory specification library (1.2.3), needed by wlmaker; built straight from basedir.c, no autotools
 upstream: https://github.com/devnev/libxdg-basedir
 license: MIT
 ported to hdxp by davy
