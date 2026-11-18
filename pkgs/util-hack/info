@@ -1,0 +1,4 @@
+hack: native Wayland port of plan9port acme for the hevel/neuswc stack
+upstream: https://git.sr.ht/~shrub900/hack
+license: MIT (see upstream LICENSE)
+ported to hdxp by davy
