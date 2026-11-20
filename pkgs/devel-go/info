@@ -1,0 +1,4 @@
+The Go programming language toolchain. Prebuilt official release (static binaries), not built from source.
+upstream: https://go.dev
+license: BSD-3-Clause
+ported to hdxp by davy
