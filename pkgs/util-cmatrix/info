@@ -1,0 +1,4 @@
+cmatrix: the falling green code from The Matrix, in your terminal.
+upstream: https://github.com/abishekvashok/cmatrix
+license: GPL-3.0-or-later
+ported to hdxp by davy
