@@ -1,0 +1,4 @@
+Small C library for parsing INI-style configuration files (shared and static).
+upstream: https://gitlab.com/iniparser/iniparser
+license: MIT
+ported to hdxp by davy
