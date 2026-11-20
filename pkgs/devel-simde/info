@@ -1,0 +1,4 @@
+SIMDe: header-only portable implementations of SIMD intrinsics (SSE, NEON and more).
+upstream: https://github.com/simd-everywhere/simde
+license: MIT
+ported to hdxp by davy
