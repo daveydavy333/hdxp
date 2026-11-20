@@ -1,0 +1,4 @@
+xxHash: extremely fast non-cryptographic hash algorithm (library and xxhsum).
+upstream: https://github.com/Cyan4973/xxHash
+license: BSD-2-Clause (library), GPL-2.0-or-later (xxhsum)
+ported to hdxp by davy
