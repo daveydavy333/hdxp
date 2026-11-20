@@ -1,0 +1,4 @@
+FFTW: C library for discrete Fourier transforms, double precision (shared and static).
+upstream: https://www.fftw.org
+license: GPL-2.0-or-later
+ported to hdxp by davy
