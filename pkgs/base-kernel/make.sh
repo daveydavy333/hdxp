@@ -81,6 +81,11 @@ SND_OPTS="SND_HDA_GENERIC SND_HDA_CODEC_REALTEK SND_HDA_CODEC_ALC269 SND_HDA_COD
 for o in $SND_OPTS; do
     scripts/config --enable "$o"
 done
+# alsa loopback (snd-aloop): a virtual sound card whose playback side comes back out of its capture side, which is how
+# cava can listen to what the machine plays. a MODULE on purpose: built in, it would register before the real sound card
+# (sound/drivers is linked before sound/pci) and take card 0. loaded after boot (util-cava ships /etc/rc.d/boot/13-aloop.sh,
+# or run modprobe snd-aloop) it becomes card 1. SND_ALOOP lives under the SND_DRIVERS menu. needs modules_install below.
+scripts/config --enable SND_DRIVERS --module SND_ALOOP
 # iwd (wifi daemon) needs kernel crypto through AF_ALG, keyrings and x509/pkcs parsers (the list comes from iwd's own startup check),
 # built in since there is no initramfs. CRYPTO_AES_NI_INTEL is only an optional speedup.
 IWD_OPTS="KEYS CRYPTO_USER_API CRYPTO_USER_API_HASH CRYPTO_USER_API_SKCIPHER CRYPTO_AES CRYPTO_CBC CRYPTO_CMAC CRYPTO_DES CRYPTO_ECB CRYPTO_HMAC CRYPTO_MD5 CRYPTO_SHA1 CRYPTO_SHA256 CRYPTO_SHA512 KEY_DH_OPERATIONS ASYMMETRIC_KEY_TYPE ASYMMETRIC_PUBLIC_KEY_SUBTYPE X509_CERTIFICATE_PARSER PKCS7_MESSAGE_PARSER PKCS8_PRIVATE_KEY_PARSER"
@@ -102,6 +107,7 @@ done
 for o in $IWD_OPTS; do
     grep -q "^CONFIG_$o=y" .config || echo "note: CONFIG_$o did not stay enabled (iwd may not start)"
 done
+grep -q "^CONFIG_SND_ALOOP=m" .config || echo "note: CONFIG_SND_ALOOP did not become a module (cava cannot use the alsa loopback)"
 if [ "$AMD_OK" -eq 1 ] && ! grep -q '^CONFIG_DRM_AMDGPU=y' .config; then
     echo "error: DRM_AMDGPU did not stay enabled in the config (a dependency is missing)"
     exit 1
