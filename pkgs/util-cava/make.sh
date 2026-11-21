@@ -28,27 +28,39 @@ gcc -std=c99 -O2 -DNDEBUG $DEFS -DPACKAGE=\"cava\" -DVERSION=\"$VER\" \
   -o cava $FILES \
   -L/usr/local/lib -lfftw3 -liniparser -lasound $NC_LD -lm -lrt -lpthread
 # sample config: ALSA input (no pulse or pipewire here).
-# listening to what the machine plays goes through the ALSA loopback card (snd-aloop, a module from base-kernel).
+# listening to what the machine plays goes through the ALSA loopback card (snd-aloop, a module from base-kernel);
+# source hdx_cap is a pcm defined in the asound.conf example below.
 sed -e 's/^; method = alsa$/method = alsa/' \
-    -e 's/^; source = hw:Loopback,1$/source = hw:Loopback,1/' \
+    -e 's/^; source = hw:Loopback,1$/source = hdx_cap/' \
     example_files/config > cava.config.example
 if [ "$NC_LD" = "" ]; then sed -i 's/^; output = noncurses$/output = noncurses/' cava.config.example; fi
 $SU install -Dm755 cava /usr/local/bin/cava
 $SU install -Dm644 cava.config.example /usr/local/share/cava/config.example
 cat > asound.conf.example <<'ASOUNDEOF'
 # Example /etc/asound.conf for cava: you still hear everything on the real sound card, and a copy
-# goes into the ALSA loopback card (snd-aloop) that cava listens to (source = hw:Loopback,1).
+# goes into the ALSA loopback card (snd-aloop) that cava listens to.
 #   - card 0 is the real sound card here; check yours with: aplay -l
-#   - everything runs at 44100 Hz S16_LE: the multi plugin needs both outputs on the same rate,
-#     and cava asks the loopback for 44100
+#   - everything runs at 48000 Hz S16_LE: the multi plugin needs both outputs on the same rate
 #   - dmix lets several programs play at the same time
+#   - cava reads the pcm "hdx_cap" (set source = hdx_cap in its config), which resamples to what cava asks for
+# test with the default device (speaker-test -D default -c2 -t sine -f 440 -l1), not with the pieces:
+# hdx_tee has 4 channels and the dmix pcms only accept their own rate.
 pcm.!default {
     type plug
-    slave.pcm "hdx_tee"
+    slave.pcm "hdx_route"
 }
 ctl.!default {
     type hw
     card 0
+}
+pcm.hdx_route {
+    type route
+    slave.pcm "hdx_tee"
+    slave.channels 4
+    ttable.0.0 1
+    ttable.1.1 1
+    ttable.0.2 1
+    ttable.1.3 1
 }
 pcm.hdx_tee {
     type multi
@@ -70,7 +82,7 @@ pcm.hdx_out {
     ipc_key 584101
     slave {
         pcm "hw:0,0"
-        rate 44100
+        rate 48000
         format S16_LE
         channels 2
     }
@@ -80,7 +92,16 @@ pcm.hdx_loop {
     ipc_key 584102
     slave {
         pcm "hw:Loopback,0,0"
-        rate 44100
+        rate 48000
+        format S16_LE
+        channels 2
+    }
+}
+pcm.hdx_cap {
+    type plug
+    slave {
+        pcm "hw:Loopback,1,0"
+        rate 48000
         format S16_LE
         channels 2
     }
