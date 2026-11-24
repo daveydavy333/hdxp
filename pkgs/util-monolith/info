@@ -1,0 +1,4 @@
+MONOLITH is a slot-strip Wayland compositor: every app gets its own screen-sized slot, slots sit in a
+row you slide along, and dialogs join their app's slot in windows mode. The flagship HDXI environment.
+upstream: https://github.com/daveydavy333/MONOLITH
+ported to hdxp by: daveydavy333
