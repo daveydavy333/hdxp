@@ -1,0 +1,1 @@
+SKUNKPORT: part of Qt6, builds for a while. client side only (QT_QPA_PLATFORM=wayland), no Qt Wayland Compositor, no EGL/GL buffer sharing.

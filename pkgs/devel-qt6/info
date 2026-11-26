@@ -1,0 +1,5 @@
+Qt6 meta port: pulls in the Qt 6.12.1 modules that make up a usable Wayland-only Qt on HDXI
+(qtbase, qtshadertools, qtsvg, qtwayland, qtdeclarative). install the modules separately if you only need some.
+upstream: https://www.qt.io (https://github.com/qt)
+license: see the individual module ports
+ported to hdxp by davy

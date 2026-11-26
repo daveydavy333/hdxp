@@ -1,0 +1,4 @@
+SKUNKPORT: huge build. QtBase takes hours on a 2-core machine and needs about 1.5 GB of RAM per
+parallel job (make.sh limits the jobs by RAM) and several GB of disk under /hdxp/src. software
+rendering only: no OpenGL/EGL, no X11, no glib, no ICU, no SQL. https only if openssl.pc exists.
+needs libudev from sys-eudev or devel-libudev-zero. a failed build is resumed on the next run.

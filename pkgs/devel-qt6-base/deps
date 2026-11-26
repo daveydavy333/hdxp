@@ -1,0 +1,14 @@
+devel-cmake
+devel-samurai
+devel-pkgconf
+devel-zlib
+devel-libpng
+devel-libjpeg-turbo
+devel-freetype
+devel-harfbuzz
+devel-fontconfig
+devel-pcre2
+devel-libxkbcommon
+devel-libinput
+devel-wayland
+util-dbus
