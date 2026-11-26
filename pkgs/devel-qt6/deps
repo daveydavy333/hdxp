@@ -1,5 +1,5 @@
-skp/devel-qt6-base
-skp/devel-qt6-shadertools
-skp/devel-qt6-svg
-skp/devel-qt6-wayland
-skp/devel-qt6-declarative
+devel-qt6-base
+devel-qt6-shadertools
+devel-qt6-svg
+devel-qt6-wayland
+devel-qt6-declarative
