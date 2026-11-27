@@ -1,0 +1,5 @@
+PulseAudio 17.0 client library only (libpulse, libpulse-simple) and its small tools (pactl, paplay, pacat, parec), no daemon.
+this is what Firefox and most programs load to play sound; the server is PipeWire (pipewire-pulse).
+upstream: https://github.com/pulseaudio/pulseaudio
+license: LGPL-2.1-or-later (client library)
+ported to hdxp by davy
