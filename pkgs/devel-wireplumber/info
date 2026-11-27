@@ -1,0 +1,4 @@
+WirePlumber 0.5.19: the PipeWire session and policy manager (picks default sinks, links streams, applies ALSA device profiles), uses system Lua
+upstream: https://github.com/PipeWire/wireplumber
+license: MIT
+ported to hdxp by davy

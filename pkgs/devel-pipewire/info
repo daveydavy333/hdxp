@@ -1,0 +1,4 @@
+PipeWire 1.6.12: media server (audio graph, ALSA and PulseAudio compatibility), no systemd, jack, bluez, v4l2 or video
+upstream: https://github.com/PipeWire/pipewire
+license: MIT
+ported to hdxp by davy

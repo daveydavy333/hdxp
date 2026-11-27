@@ -1,0 +1,4 @@
+libsndfile 1.2.2: reading and writing WAV/AIFF/AU and similar audio files (no FLAC/Vorbis/Opus/MPEG), needed for pw-play and pw-record
+upstream: https://github.com/libsndfile/libsndfile
+license: LGPL-2.1-or-later
+ported to hdxp by davy

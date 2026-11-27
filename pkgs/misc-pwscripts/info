@@ -1,0 +1,4 @@
+launcher (hdx-pw-run) and OpenRC/runit/dinit services for pipewire, wireplumber and pipewire-pulse, no systemd or logind needed
+upstream: hdxp (own scripts)
+license: MIT
+ported to hdxp by davy
