@@ -1,0 +1,4 @@
+fmt: C++ formatting library (shared), needed by android-tools
+upstream: https://github.com/fmtlib/fmt
+license: MIT
+ported to hdxp by davy

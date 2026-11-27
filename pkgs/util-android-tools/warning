@@ -1,0 +1,3 @@
+builds a lot of vendored C/C++ (boringssl, e2fsprogs, f2fs-tools, adb, fastboot): roughly 10-30 minutes.
+installs udev rules to /etc/udev/rules.d/51-android.rules that give every local user access to common Android
+vendors' USB devices. python3 scripts (avbtool, mkbootimg, ...) need devel-python3 at run time. no adb mDNS.

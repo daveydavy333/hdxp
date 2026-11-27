@@ -1,0 +1,6 @@
+Android platform tools built from AOSP sources: adb, fastboot, mke2fs.android, simg2img/img2simg, lpmake and friends,
+avbtool, mkbootimg/unpack_bootimg. this is the same set Google ships as "SDK Platform-Tools", but as source
+(Google's own download is glibc binaries only).
+upstream: https://github.com/nmeum/android-tools (release 37.0.0p1, standalone CMake build of AOSP's tools)
+license: Apache-2.0 (BoringSSL: Apache-2.0/ISC/OpenSSL)
+ported to hdxp by davy

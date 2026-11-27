@@ -1,0 +1,4 @@
+Zstandard: fast compression library and tool, needed by android-tools
+upstream: https://github.com/facebook/zstd
+license: BSD-3-Clause OR GPL-2.0-only
+ported to hdxp by davy

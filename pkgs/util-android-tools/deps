@@ -1,0 +1,9 @@
+devel-cmake
+devel-pkgconf
+devel-protobuf
+devel-fmt
+devel-brotli
+devel-lz4
+devel-zstd
+devel-libusb
+devel-pcre2

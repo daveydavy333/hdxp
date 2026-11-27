@@ -1,0 +1,4 @@
+brotli: general purpose compression library and tool (libbrotlicommon/dec/enc), needed by android-tools
+upstream: https://github.com/google/brotli
+license: MIT
+ported to hdxp by davy

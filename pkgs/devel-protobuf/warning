@@ -1,0 +1,1 @@
+protobuf takes a while to build (roughly 15-30 minutes, it is a lot of C++). needs devel-abseil with abseil 20250512.1 or newer.

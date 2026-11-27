@@ -1,0 +1,4 @@
+Protocol Buffers: protoc and the C++ runtime (static), needed by android-tools
+upstream: https://github.com/protocolbuffers/protobuf
+license: BSD-3-Clause
+ported to hdxp by davy

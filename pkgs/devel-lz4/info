@@ -1,0 +1,4 @@
+LZ4: extremely fast compression library and tool, needed by android-tools
+upstream: https://github.com/lz4/lz4
+license: BSD-2-Clause (library), GPL-2.0 (tool)
+ported to hdxp by davy
