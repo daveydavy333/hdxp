@@ -29,9 +29,19 @@ if [ ! -f build/CMakeCache.txt ]; then
     rm -rf build
     cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local -DCMAKE_INSTALL_LIBDIR=lib \
         -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -DBUILD_SHARED_LIBS=OFF -DANDROID_TOOLS_PATCH_VENDOR=OFF \
-        -DANDROID_TOOLS_ADB_ENABLE_MDNS=OFF
+        -DANDROID_TOOLS_ADB_ENABLE_MDNS=OFF \
+        -DCMAKE_CXX_FLAGS="-I$PWD/vendor/boringssl/third_party/googletest/googletest/include"
 fi
-cmake --build build --parallel "$JOBS"
+
+# the include path above is for gtest/gtest_prod.h (only the FRIEND_TEST macro): upstream expects a system googletest,
+# but boringssl carries a copy. build with -k and keep a log, so one failed run shows every error, not just the first
+LOG="$SRC/build.log"
+echo "building, full log: $LOG"
+if ! cmake --build build --parallel "$JOBS" -- -k > "$LOG" 2>&1; then
+    grep -E 'error|\*\*\*' "$LOG" | sort -u | head -40
+    echo "build failed, see $LOG"
+    exit 1
+fi
 $SU cmake --install build
 [ -s build/install_manifest.txt ] || { echo "error: no install manifest"; exit 1; }
 $SU install -Dm644 build/install_manifest.txt "/usr/local/share/hdxp-manifests/$PKG.txt"
