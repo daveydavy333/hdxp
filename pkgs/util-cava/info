@@ -1,4 +1,4 @@
-cava: console audio spectrum visualizer (ALSA input, ncurses/noncurses/raw output).
+cava: console audio spectrum visualizer (PipeWire and ALSA input, ncurses/noncurses/raw output).
 upstream: https://github.com/karlstav/cava
 license: MIT
 ported to hdxp by davy

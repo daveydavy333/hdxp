@@ -2,3 +2,5 @@ devel-fftw
 devel-iniparser
 devel-alsa-lib
 devel-ncurses
+devel-pkgconf
+devel-pipewire
