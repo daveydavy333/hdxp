@@ -1,2 +1,0 @@
-SKUNKPORT: meta port, installs Qt 6.12.1 (base, shadertools, svg, wayland, declarative).
-builds for hours and needs several GB of disk under /hdxp/src. software rendering only (no OpenGL), no X11.
