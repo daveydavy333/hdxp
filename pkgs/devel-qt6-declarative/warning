@@ -1,2 +1,0 @@
-SKUNKPORT: part of Qt6, the second biggest build after QtBase (hours on 2 cores). Qt Quick runs on the
-software renderer only: use QT_QUICK_BACKEND=software. needs skp/devel-qt6-base, -shadertools, -svg.
