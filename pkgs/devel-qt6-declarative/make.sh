@@ -27,6 +27,10 @@ echo "$SHA  $TAR" | sha256sum -c -
 [ -d "$MOD-$VER" ] || tar -xf "$TAR"
 cd "$MOD-$VER"
 
+# upstream builds qquickopenglutils.cpp when only OpenGL ES is on, but links Qt::OpenGL only when
+# QT_FEATURE_opengl is on, so a Qt without QtOpenGL fails there: make the gate the same for both
+sed -i 's/^qt_internal_extend_target(Quick CONDITION QT_FEATURE_opengl OR QT_FEATURE_opengles2 OR QT_FEATURE_opengles3$/qt_internal_extend_target(Quick CONDITION QT_FEATURE_opengl/' src/quick/CMakeLists.txt
+
 if [ ! -f build/build.ninja ]; then
     rm -rf build
     cmake -S . -B build -G Ninja \
