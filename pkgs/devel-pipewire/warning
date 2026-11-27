@@ -1,1 +1,1 @@
-PipeWire is a big C codebase: expect roughly 10-20 minutes. installs an ALSA plugin config that makes the ALSA default device go through PipeWire, so ALSA programs are silent while pipewire is not running.
+PipeWire is a big C codebase: expect roughly 10-20 minutes. it installs an ALSA plugin and config snippets; with misc-pwscripts they make the ALSA default device go through PipeWire, so ALSA programs are silent while pipewire is not running.

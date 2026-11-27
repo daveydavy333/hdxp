@@ -12,11 +12,13 @@ fi
 
 while IFS= read -r f; do
     case "$f" in
-        /usr/local/libexec/hdx-pw-run|/etc/init.d/*|/etc/service/*|/etc/dinit.d/*) rm -f "$f" ;;
+        /usr/local/libexec/hdx-pw-run|/etc/init.d/*|/etc/service/*|/etc/dinit.d/*|/etc/alsa/conf.d/*pipewire*.conf) rm -f "$f" ;;
     esac
 done < "$M"
 # runit service directories we created (only if empty after removing run)
 for s in pipewire wireplumber pipewire-pulse; do rmdir "/etc/service/$s" 2>/dev/null || true; done
+
+rmdir /etc/alsa/conf.d /etc/alsa 2>/dev/null || true
 
 rm -f "$M"
 true

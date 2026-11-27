@@ -55,4 +55,4 @@ for f in bin/pipewire bin/pipewire-pulse bin/pw-cli bin/pw-cat lib/libpipewire-0
     [ -s "/usr/local/$f" ] || { echo "error: /usr/local/$f is empty or missing"; exit 1; }
 done
 echo "note: the ALSA plugin config was installed as: $(find /usr/local -name 50-pipewire.conf 2>/dev/null | head -n1)"
-echo "note: with this installed, the ALSA 'default' device is PipeWire; when pipewire is not running use -D hw:0 (or plughw:0) instead"
+echo "note: alsa-lib only loads /etc/alsa/conf.d, misc-pwscripts links the pipewire ALSA snippets there; once linked, ALSA programs need pipewire running or -D plughw:0"

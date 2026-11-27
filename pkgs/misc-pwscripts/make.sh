@@ -1,5 +1,5 @@
 # glue for running PipeWire without systemd/logind: one launcher script plus a service per init that is installed here
-# (OpenRC, and runit/dinit when their directories exist). services are installed but NOT enabled
+# (OpenRC, and runit/dinit when their directories exist) and the ALSA default-device link. services are installed but NOT enabled
 SRC="${HDX_SRC:-/hdxp/src/misc-pwscripts-src}"
 PKG="${HDX_PKG:-misc-pwscripts}"
 if [ "$(id -u)" -eq 0 ]; then SU=""; else SU=doas; fi
@@ -47,6 +47,16 @@ case "$1" in
 esac
 WRAP
 put 755 "$F/hdx-pw-run" /usr/local/libexec/hdx-pw-run
+
+# alsa-lib only reads snippets from /etc/alsa/conf.d (not from its datadir), so link pipewire's two there:
+# this is what makes the ALSA "default" device go through PipeWire
+for c in 50-pipewire.conf 99-pipewire-default.conf; do
+    if [ -f "/usr/local/share/alsa/alsa.conf.d/$c" ]; then
+        $SU mkdir -p /etc/alsa/conf.d
+        $SU ln -sf "/usr/local/share/alsa/alsa.conf.d/$c" "/etc/alsa/conf.d/$c"
+        echo "/etc/alsa/conf.d/$c" >> "$LIST"
+    fi
+done
 
 # default config, never overwritten and not removed on uninstall (you may edit it)
 if [ ! -e /etc/hdx-pipewire.conf ]; then
