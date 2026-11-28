@@ -10,3 +10,4 @@ devel-scdoc
 devel-meson
 devel-samurai
 devel-pkgconf
+devel-musl-fts
