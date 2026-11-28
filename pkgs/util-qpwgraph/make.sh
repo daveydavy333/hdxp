@@ -18,7 +18,7 @@ NINJA=$(command -v ninja || command -v samu || true)
 rm -rf build
 cmake -S . -B build -G Ninja \
     -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local -DCMAKE_PREFIX_PATH=/usr/local \
-    -DCMAKE_MAKE_PROGRAM="$NINJA" -DCONFIG_QT6=1 -DCONFIG_SYSTEM_TRAY=0
+    -DCMAKE_MAKE_PROGRAM="$NINJA" -DCONFIG_QT6=1 -DCONFIG_SYSTEM_TRAY=0 -DCONFIG_XUNIQUE=0
 cmake --build build --parallel "$(nproc 2>/dev/null || echo 1)"
 $SU cmake --install build
 # the install manifest is what uninstall.sh removes, so nothing is guessed on removal
