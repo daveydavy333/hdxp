@@ -1,0 +1,4 @@
+dropbear, a small SSH server and client (dropbear, dbclient, dropbearkey, dropbearconvert) plus scp, with ssh linked to dbclient so scp and rsync -e ssh work. No PAM (passwords checked against /etc/shadow), no sftp server (use scp or rsync). Services for OpenRC, runit and dinit are installed but not enabled. Host keys live in /etc/dropbear and are created on first connect.
+upstream: https://matt.ucc.asn.au/dropbear/dropbear.html
+license: MIT (see LICENSE)
+ported to hdxp by davy

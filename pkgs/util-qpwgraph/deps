@@ -1,0 +1,8 @@
+devel-qt6-base
+devel-qt6-svg
+devel-qt6-wayland
+devel-pipewire
+devel-alsa-lib
+devel-cmake
+devel-samurai
+devel-pkgconf

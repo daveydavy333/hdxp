@@ -1,0 +1,4 @@
+fnott, a lightweight notification daemon for Wayland (freedesktop notifications over D-Bus, wlr-layer-shell). Includes fnottctl. Needs a running D-Bus session bus. Systemd unit goes to /usr/local/lib/systemd/user and is unused.
+upstream: https://codeberg.org/dnkl/fnott
+license: MIT
+ported to hdxp by davy

@@ -1,0 +1,4 @@
+tofi, an extremely fast and simple dmenu/rofi replacement for Wayland (tofi-run for PATH programs, tofi-drun for desktop entries). Config goes in ~/.config/tofi/config.
+upstream: https://github.com/philj56/tofi
+license: MIT
+ported to hdxp by davy

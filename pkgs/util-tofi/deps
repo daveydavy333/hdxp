@@ -1,0 +1,12 @@
+devel-wayland
+devel-wayland-protocols
+devel-libxkbcommon
+devel-cairo
+devel-pango
+devel-harfbuzz
+devel-freetype
+devel-glib
+devel-scdoc
+devel-meson
+devel-samurai
+devel-pkgconf

@@ -1,0 +1,4 @@
+swayidle, an idle management daemon for Wayland (run a command after N seconds of inactivity, resume hooks). Built without logind support, so there is no before-sleep hook.
+upstream: https://github.com/swaywm/swayidle
+license: MIT
+ported to hdxp by davy

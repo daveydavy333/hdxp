@@ -1,0 +1,4 @@
+inih, a small INI file parser library in C (libinih). Built as a shared library without the C++ INIReader.
+upstream: https://github.com/benhoyt/inih
+license: BSD-3-Clause
+ported to hdxp by davy

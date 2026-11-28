@@ -1,0 +1,4 @@
+mandoc, a UNIX manpage compiler and viewer: man, apropos, whatis, soelim, makewhatis, mandoc and demandoc (busybox has no man). Default manpath is /usr/local/share/man then /usr/share/man; no libmandoc, built dynamically.
+upstream: https://mandoc.bsd.lv/
+license: ISC
+ported to hdxp by davy

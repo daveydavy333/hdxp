@@ -1,0 +1,3 @@
+rsync, fast incremental file copy, locally or over ssh (-e ssh works with util-dropbear's ssh link). Built without ACLs, OpenSSL and IDN; with xattrs, xxhash, zstd and lz4. 
+license: GPL-3.0-or-later
+ported to hdxp by davy

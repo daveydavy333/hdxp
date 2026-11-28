@@ -1,0 +1,4 @@
+oksh, the portable OpenBSD ksh (pdksh descendant): small, fast, proper vi/emacs line editing. Installed as oksh only (not as sh or ksh) and added to /etc/shells if that file exists.
+upstream: https://github.com/ibara/oksh
+license: Public domain / ISC (see LEGAL in the source)
+ported to hdxp by davy

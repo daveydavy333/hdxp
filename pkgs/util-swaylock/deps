@@ -1,0 +1,9 @@
+devel-wayland
+devel-wayland-protocols
+devel-libxkbcommon
+devel-cairo
+devel-gdk-pixbuf
+devel-scdoc
+devel-meson
+devel-samurai
+devel-pkgconf

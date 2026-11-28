@@ -1,0 +1,4 @@
+wlsunset, day/night gamma adjustment (blue light filter) for Wayland compositors that support wlr-gamma-control. 
+upstream: https://sr.ht/~kennylevinsen/wlsunset/
+license: MIT
+ported to hdxp by davy

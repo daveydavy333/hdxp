@@ -1,0 +1,4 @@
+qpwgraph, a Qt6 graph/patchbay GUI for PipeWire: see and rewire every audio and MIDI node. Qt Widgets, so it runs on your software-only Qt6 (QT_QPA_PLATFORM=wayland). Built without the system tray icon.
+upstream: https://github.com/rncbc/qpwgraph
+license: GPL-2.0-or-later
+ported to hdxp by davy

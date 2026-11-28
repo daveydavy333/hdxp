@@ -1,0 +1,4 @@
+chafa, turns images into terminal graphics (works great with kitty graphics, sixel and plain unicode blocks). Built with PNG/GIF (built in), JPEG, WebP and SVG loaders; no TIFF, AVIF or JPEG XL; no man pages.
+upstream: https://hpjansson.github.io/chafa/
+license: LGPL-3.0-or-later
+ported to hdxp by davy

@@ -1,0 +1,4 @@
+swaylock, a screen locker for Wayland (ext-session-lock). Built WITHOUT PAM: it verifies your password against /etc/shadow, so the binary is installed setuid root and your user needs a real password. gdk-pixbuf is enabled for background images (PNG, JPEG).
+upstream: https://github.com/swaywm/swaylock
+license: MIT
+ported to hdxp by davy

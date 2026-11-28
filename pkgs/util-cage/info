@@ -1,0 +1,4 @@
+cage, a Wayland kiosk compositor: runs a single maximized application, nothing else (cage -- foot). Built against wlroots 0.20 (devel-wlroots, or the GLES one if you installed it).
+upstream: https://github.com/cage-kiosk/cage
+license: MIT
+ported to hdxp by davy
