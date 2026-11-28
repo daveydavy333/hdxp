@@ -10,7 +10,7 @@ echo "$SHA256  $TARBALL" | sha256sum -c -
 [ -d "oksh-$VER" ] || tar xf "$TARBALL"
 cd "oksh-$VER"
 if [ "$(id -u)" -eq 0 ]; then SU=""; else SU=doas; fi
-./configure --prefix=/usr/local 
+./configure --prefix=/usr/local --cflags="-g -O2 -DNCURSES_ENABLE_STDBOOL_H=1"
 make -j"$(nproc 2>/dev/null || echo 1)"
 STAGE="$SRC/stage"
 rm -rf "$STAGE"
